@@ -1,35 +1,79 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+// import { useState, useEffect } from 'react';
+import Navigation from './components/navigation';
+import Hero from './components/hero';
+import Projects from './components/projects';
+import Footer from './components/footer';
+// import { api } from './api/api';
+// import type { Project, Contact } from './types';
 
 function App() {
-  const [count, setCount] = useState(0)
+  // const [projects, setProjects] = useState<Project[]>([]);
+  // const [contact, setContact] = useState<Contact | null>(null);
+  // const [loading, setLoading] = useState(true);
+  // const [error, setError] = useState<string | null>(null);
+
+  // useEffect(() => {
+  //   async function fetchData() {
+  //     try {
+  //       const [projectsData, contactData] = await Promise.all([
+  //         api.getProjects(),
+  //         api.getContact()
+  //       ]);
+  //       setProjects(projectsData);
+  //       setContact(contactData);
+  //     } catch (err) {
+  //       setError(err instanceof Error ? err.message : 'Failed to load data');
+  //     } finally {
+  //       setLoading(false);
+  //     }
+  //   }
+  //
+  //   fetchData();
+  // }, []);
+
+  // if (1) {
+  //   return (
+  //     <div className="min-h-screen flex items-center justify-center">
+  //       <div className="text-gray-600">Loading...</div>
+  //     </div>
+  //   );
+  // }
+
+  // if (error) {
+  //   return (
+  //     <div className="min-h-screen flex items-center justify-center">
+  //       <div className="text-red-600">Error: {error}</div>
+  //     </div>
+  //   );
+  // }
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div className="min-h-screen">
+      <Navigation />
+        <Hero
+            name="David Moura"
+            role="Senior Software Engineer"
+            description="Specializing in backend development with a passion for building scalable systems across technology, gaming, and finance."
+            // contact={contact}
+        />
+      {/*{contact && (*/}
+      {/*  <Hero*/}
+      {/*    name="David Moura"*/}
+      {/*    role="Senior Software Engineer"*/}
+      {/*    description="Specializing in backend development with a passion for building scalable systems across technology, gaming, and finance."*/}
+      {/*    contact={contact}*/}
+      {/*  />*/}
+      {/*)}*/}
+      
+      <div id="work">
+        <Projects
+            // projects={projects}
+        />
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+      
+      <Footer />
+    </div>
+  );
 }
 
-export default App
+export default App;
