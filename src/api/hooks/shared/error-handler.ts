@@ -1,45 +1,45 @@
 import {ApiError} from '../../client'
 
 export interface ErrorHandlerResult {
-  errorMessage: string
-  shouldReturn: boolean
+    errorMessage: string
+    shouldReturn: boolean
 }
 
 export const handleApiError = (err: unknown): ErrorHandlerResult => {
-  if (err instanceof Error && err.name === 'AbortError') {
-    return {errorMessage: '', shouldReturn: true}
-  }
+    if (err instanceof Error && err.name === 'AbortError') {
+        return {errorMessage: '', shouldReturn: true}
+    }
 
-  let errorMessage = 'An error occurred'
+    let errorMessage = 'An error occurred'
 
-  if (err instanceof ApiError) {
-    switch (err.code) {
-      case 'FORBIDDEN':
-        errorMessage = 'Access denied - please refresh the page'
-        break
-      case 'RATE_LIMITED':
-        errorMessage = 'Too many requests - please wait a moment'
-        break
-      case 'OFFLINE':
-        errorMessage = 'No internet connection'
-        break
-      case 'SERVER_ERROR':
-        errorMessage = 'Server error - please try again later'
-        break
-      case 'NETWORK_ERROR':
-        errorMessage = 'Network error - check your connection'
-        break
-      default:
+    if (err instanceof ApiError) {
+        switch (err.code) {
+            case 'FORBIDDEN':
+                errorMessage = 'Access denied - please refresh the page'
+                break
+            case 'RATE_LIMITED':
+                errorMessage = 'Too many requests - please wait a moment'
+                break
+            case 'OFFLINE':
+                errorMessage = 'No internet connection'
+                break
+            case 'SERVER_ERROR':
+                errorMessage = 'Server error - please try again later'
+                break
+            case 'NETWORK_ERROR':
+                errorMessage = 'Network error - check your connection'
+                break
+            default:
+                errorMessage = 'Something went wrong'
+        }
+    } else if (err instanceof Error) {
         errorMessage = 'Something went wrong'
     }
-  } else if (err instanceof Error) {
-    errorMessage = 'Something went wrong'
-  }
 
-  return {errorMessage, shouldReturn: false}
+    return {errorMessage, shouldReturn: false}
 }
 
 export const handleUnexpectedError = (err: unknown): string => {
-  console.error('Unhandled error in fetchData:', err)
-  return 'Something went wrong'
+    console.error('Unhandled error in fetchData:', err)
+    return 'Something went wrong'
 }

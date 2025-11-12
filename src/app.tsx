@@ -33,16 +33,16 @@ function App() {
     // }, []);
 
 
-// TODO - add about and contact sections
+    // TODO - add about and contact sections
     // TODO - add dark mode toggle
     return (
         <div className="min-h-screen">
             <Navigation/>
-                <Hero
-                    name="David Moura"
-                    role="Senior Software Engineer"
-                    description="Specializing in backend development with a passion for building scalable systems across technology, gaming, and finance."
-                />
+            <Hero
+                name="David Moura"
+                role="Senior Software Engineer"
+                description="Specializing in backend development with a passion for building scalable systems across technology, gaming, and finance."
+            />
 
             <div id="work">
                 <Projects
