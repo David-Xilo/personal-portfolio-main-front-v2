@@ -9,6 +9,7 @@ interface ProjectsProps {
   category?: string;
 }
 
+// TODO - add complex card with repos inside project card
 export default function Projects({}: ProjectsProps) {
     const projectsPath = '/tech/projects'
     const {status, message: projects, error} = useProjectsGetApi(projectsPath)

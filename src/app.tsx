@@ -33,7 +33,8 @@ function App() {
     // }, []);
 
 
-
+// TODO - add about and contact sections
+    // TODO - add dark mode toggle
     return (
         <div className="min-h-screen">
             <Navigation/>

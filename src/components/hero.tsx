@@ -82,8 +82,22 @@ export default function Hero({name, role, description}: HeroProps) {
                         animate={{y: [0, 10, 0]}}
                         transition={{repeat: Infinity, duration: 2}}
                     >
+                        // TODO - add scroll to work section
+                        // TODO - revert arrow after scroll to work section
                         <ArrowDown className="w-6 h-6 text-gray-400 mx-auto"/>
                     </motion.div>
+                    {/*<motion.div*/}
+                    {/*    animate={{y: [0, 10, 0]}}*/}
+                    {/*    transition={{repeat: Infinity, duration: 2}}*/}
+                    {/*    onClick={() => {*/}
+                    {/*        document.getElementById('work')?.scrollIntoView({*/}
+                    {/*            behavior: 'smooth'*/}
+                    {/*        });*/}
+                    {/*    }}*/}
+                    {/*    className="cursor-pointer"  // Add cursor pointer to show it's clickable*/}
+                    {/*>*/}
+                    {/*    <ArrowDown className="w-6 h-6 text-gray-400 mx-auto"/>*/}
+                    {/*</motion.div>*/}
                 </motion.div>
             </div>
         </section>
