@@ -1,17 +1,45 @@
 import { motion } from 'framer-motion';
-import type { Project } from '../types';
+// import type { Project } from '../types';
 import Github from "../icons/github.tsx";
 import ExternalLink from "../icons/external_link.tsx";
+import {type Project, useProjectsGetApi} from "../api/hooks/projects-rest.tsx";
 
 interface ProjectsProps {
   projects?: Project[];
   category?: string;
 }
 
-export default function Projects({ projects, category }: ProjectsProps) {
-  const filteredProjects = category 
-    ? projects?.filter(p => p.category === category)
-    : projects;
+export default function Projects({}: ProjectsProps) {
+    const projectsPath = '/tech/projects'
+    const {status, message: projects, error} = useProjectsGetApi(projectsPath)
+
+    if (status === 'loading' || status === '') {
+        return (
+            <div className="min-h-screen flex items-center justify-center">
+                <div className="text-gray-600">Loading...</div>
+            </div>
+        );
+    }
+
+    if (status === 'error') {
+        return (
+            <div className="flex flex-col items-center justify-center p-8 text-center">
+                <div className="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-md p-4">
+                    <h3 className="text-lg font-medium text-red-800 dark:text-red-400 mb-2">
+                        Error Loading Projects
+                    </h3>
+                    <p className="text-red-600 dark:text-red-300">
+                        {error ||
+                            `An unexpected error occurred while loading Projects.`}
+                    </p>
+                </div>
+            </div>
+        )
+    }
+
+    // const filteredProjects = category
+    // ? projects?.filter(p => p.category === category)
+    // : projects;
 
   return (
     <section className="py-24 px-6 bg-gray-50">
@@ -30,24 +58,24 @@ export default function Projects({ projects, category }: ProjectsProps) {
           </p>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {filteredProjects?.map((project, index) => (
+            {projects?.map((project, index) => (
               <motion.article
-                key={project.id}
+                key={project.title}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 className="bg-white rounded-lg overflow-hidden hover:shadow-lg transition-shadow"
               >
-                {project.image_url && (
-                  <div className="aspect-video bg-gray-200 overflow-hidden">
-                    <img 
-                      src={project.image_url} 
-                      alt={project.title}
-                      className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
-                    />
-                  </div>
-                )}
+                {/*{project.image_url && (*/}
+                {/*  <div className="aspect-video bg-gray-200 overflow-hidden">*/}
+                {/*    <img */}
+                {/*      src={project.image_url} */}
+                {/*      alt={project.title}*/}
+                {/*      className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"*/}
+                {/*    />*/}
+                {/*  </div>*/}
+                {/*)}*/}
                 
                 <div className="p-6">
                   <div className="flex items-start justify-between mb-3">
@@ -55,9 +83,9 @@ export default function Projects({ projects, category }: ProjectsProps) {
                       {project.title}
                     </h3>
                     <div className="flex gap-2">
-                      {project.github_url && (
+                      {project.repositories && project.repositories.at(0)?.link_to_git && (
                         <a 
-                          href={project.github_url}
+                          href={project.repositories.at(0)?.link_to_git}
                           target="_blank"
                           rel="noopener noreferrer"
                           className="p-2 hover:bg-gray-100 rounded transition-colors"
@@ -66,9 +94,9 @@ export default function Projects({ projects, category }: ProjectsProps) {
                           <Github className="w-4 h-4 text-gray-600" />
                         </a>
                       )}
-                      {project.live_url && (
+                      {project.link_to_project && (
                         <a 
-                          href={project.live_url}
+                          href={project.link_to_project}
                           target="_blank"
                           rel="noopener noreferrer"
                           className="p-2 hover:bg-gray-100 rounded transition-colors"
@@ -84,16 +112,16 @@ export default function Projects({ projects, category }: ProjectsProps) {
                     {project.description}
                   </p>
                   
-                  <div className="flex flex-wrap gap-2">
-                    {project.technologies.map(tech => (
-                      <span 
-                        key={tech}
-                        className="px-3 py-1 bg-gray-100 text-gray-700 text-xs rounded-full"
-                      >
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
+                  {/*<div className="flex flex-wrap gap-2">*/}
+                  {/*  {project.technologies.map(tech => (*/}
+                  {/*    <span */}
+                  {/*      key={tech}*/}
+                  {/*      className="px-3 py-1 bg-gray-100 text-gray-700 text-xs rounded-full"*/}
+                  {/*    >*/}
+                  {/*      {tech}*/}
+                  {/*    </span>*/}
+                  {/*  ))}*/}
+                  {/*</div>*/}
                 </div>
               </motion.article>
             ))}
