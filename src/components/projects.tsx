@@ -51,10 +51,10 @@ export default function Projects({}: ProjectsProps) {
           transition={{ duration: 0.5 }}
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900">
-            Selected Work
+            Work
           </h2>
           <p className="text-lg text-gray-600 mb-16 max-w-2xl">
-            A collection of projects spanning technology, gaming, and finance.
+            A collection of projects spanning my interests and expertise.
           </p>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -69,8 +69,8 @@ export default function Projects({}: ProjectsProps) {
               >
                 {/*{project.image_url && (*/}
                 {/*  <div className="aspect-video bg-gray-200 overflow-hidden">*/}
-                {/*    <img */}
-                {/*      src={project.image_url} */}
+                {/*    <img*/}
+                {/*      src={project.image_url}*/}
                 {/*      alt={project.title}*/}
                 {/*      className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"*/}
                 {/*    />*/}
