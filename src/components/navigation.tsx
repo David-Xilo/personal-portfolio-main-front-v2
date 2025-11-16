@@ -24,9 +24,9 @@ export default function Navigation() {
                 <div className="flex justify-between items-center">
                     <a href="#" className="text-xl font-semibold text-gray-900">DM</a>
                     <div className="flex gap-8">
-                        <a href="#work" className="text-gray-600 hover:text-gray-900 transition-colors">Work</a>
                         <a href="#about" className="text-gray-600 hover:text-gray-900 transition-colors">About</a>
                         <a href="#contact" className="text-gray-600 hover:text-gray-900 transition-colors">Contact</a>
+                        <a href="#work" className="text-gray-600 hover:text-gray-900 transition-colors">Work</a>
                     </div>
                 </div>
             </div>

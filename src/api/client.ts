@@ -1,27 +1,21 @@
-import {config} from '../config'
+import { config } from '../config'
 
 class ApiError extends Error {
     public status?: number
     public code?: string
 
-    constructor(
-        message: string,
-        status?: number,
-        code?: string,
-    ) {
+    constructor(message: string, status?: number, code?: string) {
         super(message)
-        this.status = status;
-        this.code = code;
+        this.status = status
+        this.code = code
         this.name = 'ApiError'
+        Object.setPrototypeOf(this, ApiError.prototype)
     }
 }
 
-let accessToken: string | null = null;
-
 type RequestOptions = {
-    retry?: boolean
-    headers?: RequestInit['headers']
-} & Omit<RequestInit, 'headers'>
+    signal?: AbortSignal
+} & RequestInit
 
 class ApiClient {
     private readonly baseURL: string
@@ -30,107 +24,48 @@ class ApiClient {
         this.baseURL = config.apiUrl
     }
 
-    async get<T>(endpoint: string): Promise<T> {
-        return this.makeRequest<T>(endpoint, {method: 'GET'})
-    }
-
-    async post<T, B = unknown>(endpoint: string, body: B): Promise<T> {
+    async get<T>(endpoint: string, options?: RequestOptions): Promise<T> {
         return this.makeRequest<T>(endpoint, {
-            method: 'POST',
-            body: JSON.stringify(body),
-            headers: {'Content-Type': 'application/json'},
+            ...options,
+            method: 'GET',
         })
-    }
-
-    async refreshToken(): Promise<string> {
-        const url = this.baseURL + '/auth/token'
-        const res = await fetch(url, {
-            method: 'POST',
-            credentials: 'include', // sends httponly cookie refresh token
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                'auth_key': 'personal-portfolio-frontend'
-            })
-        });
-        if (!res.ok) throw new Error('Refresh failed');
-        const {token} = await res.json();
-        return token;
-    }
-
-    async fetchWithAuth(
-        input: RequestInfo,
-        options: RequestOptions = {}
-    ): Promise<Response> {
-        // Split out retry and headers, keep rest valid for fetch
-        const {retry, headers: optionsHeaders, ...rest} = options
-
-        // Ensure accessToken...
-        if (!accessToken) {
-            try {
-                accessToken = await this.refreshToken()
-            } catch {
-                return Promise.reject(new Error('Not authenticated'))
-            }
-        }
-
-        // Build a proper Headers object
-        const headers = new Headers(optionsHeaders)
-        headers.set('Authorization', `Bearer ${accessToken}`)
-
-        // Perform the initial fetch with clean options
-        let res = await fetch(input, {
-            ...rest,
-            headers,
-            credentials: 'include',
-        })
-
-        // On 401: try refresh and retry
-        if (res.status === 401 && !retry) {
-            try {
-                accessToken = await this.refreshToken()
-                headers.set('Authorization', `Bearer ${accessToken}`)
-                res = await fetch(input, {
-                    ...rest,
-                    headers,
-                    credentials: 'include',
-                    // Don't pass retry in fetch options
-                })
-            } catch {
-                window.location.href = '/login'
-                return Promise.reject(new Error('Session expired'))
-            }
-        }
-
-        return res
     }
 
     private async handleResponse<T>(response: Response): Promise<T> {
+        const contentType = response.headers.get('content-type')
+        const isJson = contentType?.includes('application/json')
+
         if (!response.ok) {
             let errorMessage = `HTTP ${response.status}: ${response.statusText}`
 
-            try {
-                const errorData = await response.json()
-                errorMessage = errorData.error || errorData.message || errorMessage
-            } catch {
-                // Response is not JSON
+            if (isJson) {
+                try {
+                    const errorData = await response.json()
+                    errorMessage = errorData.error || errorData.message || errorMessage
+                } catch {
+                    // Failed to parse error JSON
+                }
             }
 
             switch (response.status) {
+                case 400:
+                    throw new ApiError(errorMessage, 400, 'BAD_REQUEST')
                 case 403:
-                    throw new ApiError('Access denied by server', 403, 'FORBIDDEN')
+                    throw new ApiError('Access denied', 403, 'FORBIDDEN')
+                case 404:
+                    throw new ApiError('Resource not found', 404, 'NOT_FOUND')
                 case 429:
                     throw new ApiError('Too many requests', 429, 'RATE_LIMITED')
                 case 500:
-                    throw new ApiError('Server error', 500, 'SERVER_ERROR')
+                    throw new ApiError('Internal server error', 500, 'SERVER_ERROR')
+                case 503:
+                    throw new ApiError('Service unavailable', 503, 'SERVICE_UNAVAILABLE')
                 default:
                     throw new ApiError(errorMessage, response.status, 'API_ERROR')
             }
         }
 
-        const contentType = response.headers.get('content-type')
-        if (!contentType || !contentType.includes('application/json')) {
+        if (response.status === 204 || !isJson) {
             return {} as T
         }
 
@@ -139,7 +74,7 @@ class ApiClient {
 
     private async makeRequest<T>(
         endpoint: string,
-        options: RequestInit = {},
+        options: RequestOptions = {}
     ): Promise<T> {
         const url = `${this.baseURL}${endpoint}`
 
@@ -149,28 +84,42 @@ class ApiClient {
                 'Content-Type': 'application/json',
                 ...options.headers,
             },
-            credentials: 'include',
             mode: 'cors',
         }
 
         if (config.isDevelopment) {
-            console.log(`API: ${options.method || 'GET'} ${url}`)
+            console.log(`API ${options.method || 'GET'}: ${url}`)
         }
 
         try {
-            const response = await this.fetchWithAuth(url, requestOptions)
+            const response = await fetch(url, requestOptions)
             return await this.handleResponse<T>(response)
         } catch (error) {
+            // Handle abort errors
+            if (error instanceof Error && error.name === 'AbortError') {
+                throw new ApiError('Request cancelled', 0, 'CANCELLED')
+            }
 
-            throw error instanceof ApiError
-                ? error
-                : new ApiError('Network error', 0, 'NETWORK_ERROR')
+            // Handle network errors
+            if (error instanceof TypeError) {
+                throw new ApiError('Network error - please check your connection', 0, 'NETWORK_ERROR')
+            }
+
+            // Re-throw ApiError
+            if (error instanceof ApiError) {
+                throw error
+            }
+
+            // Unknown error
+            throw new ApiError(
+                error instanceof Error ? error.message : 'Unknown error',
+                0,
+                'UNKNOWN_ERROR'
+            )
         }
     }
-
 }
-
 
 export const apiClient = new ApiClient()
 export default apiClient
-export {ApiError}
+export { ApiError }

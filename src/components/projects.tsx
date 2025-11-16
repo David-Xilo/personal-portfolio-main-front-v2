@@ -1,8 +1,8 @@
 import {motion} from 'framer-motion';
-// import type { Project } from '../types';
 import Github from "../icons/github.tsx";
 import ExternalLink from "../icons/external_link.tsx";
-import {type Project, useProjectsGetApi} from "../api/hooks/projects-rest.tsx";
+import {useApiGet} from "../api/use-api-get.tsx";
+import type {Project} from "../api/types.ts";
 
 interface ProjectsProps {
     projects?: Project[];
@@ -12,9 +12,9 @@ interface ProjectsProps {
 // TODO - add complex card with repos inside project card
 export default function Projects({}: ProjectsProps) {
     const projectsPath = '/tech/projects'
-    const {status, message: projects, error} = useProjectsGetApi(projectsPath)
+    const {status, message: projects, error} = useApiGet<Project[]>(projectsPath, [])
 
-    if (status === 'loading' || status === '') {
+    if (status === 'loading') {
         return (
             <div className="min-h-screen flex items-center justify-center">
                 <div className="text-gray-600">Loading...</div>

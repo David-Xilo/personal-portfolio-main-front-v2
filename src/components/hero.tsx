@@ -3,24 +3,20 @@ import ArrowDown from "../icons/arrow_down.tsx";
 import Linkedin from "../icons/linkedin.tsx";
 import Github from "../icons/github.tsx";
 import Mail from "../icons/mail.tsx";
-import {useContactGetApi} from "../api/hooks/contact-rest.tsx";
+import {useApiGet} from "../api/use-api-get.tsx";
+import type {ContactInfo} from "../api/types.ts";
 
 interface HeroProps {
     name: string;
     role: string;
     description: string;
-    // contact: {
-    //     email: string;
-    //     github: string;
-    //     linkedin: string;
-    // };
 }
 
 export default function Hero({name, role, description}: HeroProps) {
     const contactPath = '/about/contact'
-    const {status: contact_status, message: contact, error: contact_error} = useContactGetApi(contactPath)
+    const {status, message, error} = useApiGet<ContactInfo>(contactPath, null)
 
-    if (contact_status === 'loading' || contact_status === '') {
+    if (status === 'loading') {
         return (
             <div className="min-h-screen flex items-center justify-center">
                 <div className="text-gray-600">Loading...</div>
@@ -28,10 +24,10 @@ export default function Hero({name, role, description}: HeroProps) {
         );
     }
 
-    if (contact_status === 'error' || contact_status === 'failed') {
+    if (status === 'error') {
         return (
             <div className="min-h-screen flex items-center justify-center">
-                <div className="text-red-600">Error: {contact_error}</div>
+                <div className="text-red-600">Error: {error}</div>
             </div>
         );
     }
@@ -52,14 +48,14 @@ export default function Hero({name, role, description}: HeroProps) {
 
                     <div className="flex justify-center gap-6 mb-16">
                         <a
-                            href={`mailto:${contact?.email}`}
+                            href={`mailto:${message?.email}`}
                             className="p-3 bg-gray-100 hover:bg-gray-200 rounded-lg transition-colors"
                             aria-label="Email"
                         >
                             <Mail className="w-6 h-6 text-gray-700"/>
                         </a>
                         <a
-                            href={contact?.github}
+                            href={message?.github}
                             target="_blank"
                             rel="noopener noreferrer"
                             className="p-3 bg-gray-100 hover:bg-gray-200 rounded-lg transition-colors"
@@ -68,7 +64,7 @@ export default function Hero({name, role, description}: HeroProps) {
                             <Github className="w-6 h-6 text-gray-700"/>
                         </a>
                         <a
-                            href={contact?.linkedin}
+                            href={message?.linkedin}
                             target="_blank"
                             rel="noopener noreferrer"
                             className="p-3 bg-gray-100 hover:bg-gray-200 rounded-lg transition-colors"
