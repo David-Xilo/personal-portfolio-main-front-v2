@@ -12,11 +12,13 @@ function App() {
     return (
         <div className="min-h-screen">
             <Navigation/>
-            <Hero
-                name="David Moura"
-                role="Senior Software Engineer"
-                description="Specializing in backend development with a passion for building scalable systems across technology, security and finance."
-            />
+            <div id={"hero"}>
+                <Hero
+                    name="David Moura"
+                    role="Senior Software Engineer"
+                    description="Specializing in backend development with a passion for building scalable systems across technology, security and finance."
+                />
+            </div>
 
             <div id="about">
                 <About/>

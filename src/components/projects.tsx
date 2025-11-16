@@ -1,8 +1,9 @@
 import {motion} from 'framer-motion';
 import Github from "../icons/github.tsx";
 import ExternalLink from "../icons/external_link.tsx";
-import {useApiGet} from "../api/use-api-get.tsx";
+import {useApiGet} from "../api/use_api_get.tsx";
 import type {Project} from "../api/types.ts";
+import ArrowUp from "../icons/arrow_up.tsx";
 
 interface ProjectsProps {
     projects?: Project[];
@@ -45,6 +46,18 @@ export default function Projects({}: ProjectsProps) {
     return (
         <section className="py-24 px-6 bg-gray-50">
             <div className="max-w-6xl mx-auto">
+                <motion.div
+                    animate={{y: [0, 10, 0]}}
+                    transition={{repeat: Infinity, duration: 2}}
+                    onClick={() => {
+                        document.getElementById('contact')?.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }}
+                    className="cursor-pointer"
+                >
+                    <ArrowUp className="w-6 h-6 text-gray-400 mx-auto"/>
+                </motion.div>
                 <motion.div
                     initial={{opacity: 0}}
                     whileInView={{opacity: 1}}

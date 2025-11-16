@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import apiClient, { ApiError } from './client.ts'
-import { handleApiError, handleUnexpectedError } from './error-handler.ts'
+import { handleApiError, handleUnexpectedError } from './error_handler.ts'
 
 interface ApiResponse<T> {
     status: 'loading' | 'success' | 'error' | ''

@@ -10,8 +10,6 @@ export default function Navigation() {
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
-    // TODO - add about section
-    // TODO - add contact section
     return (
         <motion.nav
             initial={{y: -100}}

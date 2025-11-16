@@ -1,4 +1,6 @@
 import { motion } from 'framer-motion';
+import ArrowDown from "../icons/arrow_down.tsx";
+import ArrowUp from "../icons/arrow_up.tsx";
 
 export default function Contact() {
     const contactLinks = [
@@ -22,6 +24,18 @@ export default function Contact() {
     return (
         <section className="py-24 px-6 bg-gray-50">
             <div className="max-w-6xl mx-auto">
+                <motion.div
+                    animate={{y: [0, 10, 0]}}
+                    transition={{repeat: Infinity, duration: 2}}
+                    onClick={() => {
+                        document.getElementById('about')?.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }}
+                    className="cursor-pointer"
+                >
+                    <ArrowUp className="w-6 h-6 text-gray-400 mx-auto"/>
+                </motion.div>
                 <motion.div
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
@@ -76,6 +90,18 @@ export default function Contact() {
                             </div>
                         </motion.div>
                     </div>
+                </motion.div>
+                <motion.div
+                    animate={{y: [0, 10, 0]}}
+                    transition={{repeat: Infinity, duration: 2}}
+                    onClick={() => {
+                        document.getElementById('work')?.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }}
+                    className="cursor-pointer"
+                >
+                    <ArrowDown className="w-6 h-6 text-gray-400 mx-auto"/>
                 </motion.div>
             </div>
         </section>
