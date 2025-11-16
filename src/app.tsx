@@ -3,6 +3,8 @@ import Navigation from './components/navigation';
 import Hero from './components/hero';
 import Projects from './components/projects';
 import Footer from './components/footer';
+import About from "./components/about.tsx";
+import Contact from "./components/contact.tsx";
 // import {api} from './api/api';
 // import type {Project, Contact} from './types';
 // import {useContactGetApi} from "./api/hooks/contact-rest.tsx";
@@ -33,7 +35,6 @@ function App() {
     // }, []);
 
 
-    // TODO - add about and contact sections
     // TODO - add dark mode toggle
     return (
         <div className="min-h-screen">
@@ -41,14 +42,21 @@ function App() {
             <Hero
                 name="David Moura"
                 role="Senior Software Engineer"
-                description="Specializing in backend development with a passion for building scalable systems across technology, gaming, and finance."
+                description="Specializing in backend development with a passion for building scalable systems across technology, security and finance."
             />
 
-            <div id="work">
-                <Projects
-                    // projects={projects}
-                />
+            <div id="about">
+                <About/>
             </div>
+
+            <div id="contact">
+                <Contact/>
+            </div>
+
+            <div id="work">
+                <Projects />
+            </div>
+
 
             <Footer/>
         </div>
