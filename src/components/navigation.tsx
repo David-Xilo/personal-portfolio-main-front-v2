@@ -1,5 +1,6 @@
 import {useEffect, useState} from 'react';
 import {motion} from 'framer-motion';
+import ThemeToggle from "./theme_toggle.tsx";
 
 export default function Navigation() {
     const [scrolled, setScrolled] = useState(false);
@@ -20,7 +21,10 @@ export default function Navigation() {
         >
             <div className="max-w-6xl mx-auto px-6 py-4">
                 <div className="flex justify-between items-center">
-                    <a href="#" className="text-xl font-semibold text-gray-900">DM</a>
+                    <div className="flex items-center gap-4">
+                        <a href="#" className="text-xl font-semibold text-gray-900">DM</a>
+                        <ThemeToggle />
+                    </div>
                     <div className="flex gap-8">
                         <a href="#about" className="text-gray-600 hover:text-gray-900 transition-colors">About</a>
                         <a href="#contact" className="text-gray-600 hover:text-gray-900 transition-colors">Contact</a>
