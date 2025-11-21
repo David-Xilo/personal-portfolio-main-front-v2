@@ -14,10 +14,10 @@ export default function About() {
 
     return (
         <>
-            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900">
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900 dark:text-gray-100">
                 About
             </h2>
-            <p className="text-lg text-gray-600 mb-16 max-w-2xl">
+            <p className="text-lg text-gray-600 dark:text-gray-400 mb-16 max-w-2xl">
                 Building robust systems at the intersection of technology, security, and finance.
             </p>
 
@@ -28,10 +28,10 @@ export default function About() {
                     viewport={{ once: true }}
                     transition={{ duration: 0.5, delay: 0.2 }}
                 >
-                    <h3 className="text-2xl font-semibold text-gray-900 mb-4">
+                    <h3 className="text-2xl font-semibold text-gray-900 dark:text-gray-100 mb-4">
                         Background
                     </h3>
-                    <div className="space-y-4 text-gray-600 leading-relaxed">
+                    <div className="space-y-4 text-gray-600 dark:text-gray-400 leading-relaxed">
                         <p>
                             I'm a Senior Software Engineer with a focus on backend development
                             and scalable system architecture. My expertise lies in designing and
@@ -54,7 +54,7 @@ export default function About() {
                     viewport={{ once: true }}
                     transition={{ duration: 0.5, delay: 0.4 }}
                 >
-                    <h3 className="text-2xl font-semibold text-gray-900 mb-4">
+                    <h3 className="text-2xl font-semibold text-gray-900 dark:text-gray-100 mb-4">
                         Skills & Expertise
                     </h3>
                     <div className="flex flex-wrap gap-3">
@@ -65,7 +65,7 @@ export default function About() {
                                 whileInView={{ opacity: 1, scale: 1 }}
                                 viewport={{ once: true }}
                                 transition={{ duration: 0.3, delay: 0.5 + index * 0.05 }}
-                                className="px-4 py-2 bg-gray-100 text-gray-700 rounded-lg text-sm font-medium"
+                                className="px-4 py-2 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-lg text-sm font-medium"
                             >
                                 {skill}
                             </motion.span>

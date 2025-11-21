@@ -17,7 +17,7 @@ export default function Projects({}: ProjectsProps) {
     if (status === 'loading') {
         return (
             <div className="min-h-screen flex items-center justify-center">
-                <div className="text-gray-600">Loading...</div>
+                <div className="text-gray-600 dark:text-gray-400">Loading...</div>
             </div>
         );
     }
@@ -44,10 +44,10 @@ export default function Projects({}: ProjectsProps) {
 
     return (
         <>
-            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900">
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900 dark:text-gray-100">
                 Work
             </h2>
-            <p className="text-lg text-gray-600 mb-16 max-w-2xl">
+            <p className="text-lg text-gray-600 dark:text-gray-400 mb-16 max-w-2xl">
                 A collection of projects spanning my interests and expertise.
             </p>
 
@@ -59,7 +59,7 @@ export default function Projects({}: ProjectsProps) {
                         whileInView={{opacity: 1, y: 0}}
                         viewport={{once: true}}
                         transition={{duration: 0.5, delay: index * 0.1}}
-                        className="bg-white rounded-lg overflow-hidden hover:shadow-lg transition-shadow"
+                        className="bg-white dark:bg-gray-900 rounded-lg overflow-hidden hover:shadow-lg transition-shadow"
                     >
                         // TODO - add images to cloudinary and use them here
                         {/*{project.image_url && (*/}
@@ -74,7 +74,7 @@ export default function Projects({}: ProjectsProps) {
 
                         <div className="p-6">
                             <div className="flex items-start justify-between mb-3">
-                                <h3 className="text-xl font-semibold text-gray-900">
+                                <h3 className="text-xl font-semibold text-gray-900 dark:text-gray-100">
                                     {project.title}
                                 </h3>
                                 <div className="flex gap-2">
@@ -83,10 +83,10 @@ export default function Projects({}: ProjectsProps) {
                                             href={project.repositories.at(0)?.link_to_git}
                                             target="_blank"
                                             rel="noopener noreferrer"
-                                            className="p-2 hover:bg-gray-100 rounded transition-colors"
+                                            className="p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded transition-colors"
                                             aria-label="View source"
                                         >
-                                            <Github className="w-4 h-4 text-gray-600"/>
+                                            <Github className="w-4 h-4 text-gray-600 dark:text-gray-400"/>
                                         </a>
                                     )}
                                     {project.link_to_project && (
@@ -94,16 +94,16 @@ export default function Projects({}: ProjectsProps) {
                                             href={project.link_to_project}
                                             target="_blank"
                                             rel="noopener noreferrer"
-                                            className="p-2 hover:bg-gray-100 rounded transition-colors"
+                                            className="p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded transition-colors"
                                             aria-label="View live"
                                         >
-                                            <ExternalLink className="w-4 h-4 text-gray-600"/>
+                                            <ExternalLink className="w-4 h-4 text-gray-600 dark:text-gray-400"/>
                                         </a>
                                     )}
                                 </div>
                             </div>
 
-                            <p className="text-gray-600 mb-4 text-sm leading-relaxed">
+                            <p className="text-gray-600 dark:text-gray-400 mb-4 text-sm leading-relaxed">
                                 {project.description}
                             </p>
 

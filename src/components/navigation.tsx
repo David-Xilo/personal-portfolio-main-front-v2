@@ -16,19 +16,21 @@ export default function Navigation() {
             initial={{y: -100}}
             animate={{y: 0}}
             className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-                scrolled ? 'bg-gray-100 backdrop-blur-sm shadow-sm' : 'bg-transparent'
+                scrolled
+                    ? 'bg-gray-50/90 dark:bg-gray-900/90 backdrop-blur-sm shadow-sm'
+                    : 'bg-transparent'
             }`}
         >
             <div className="max-w-6xl mx-auto px-6 py-4">
                 <div className="flex justify-between items-center">
                     <div className="flex items-center gap-4">
-                        <a href="#" className="text-xl font-semibold text-gray-900">DM</a>
+                        <a href="#" className="text-xl font-semibold text-gray-900 dark:text-gray-100">DM</a>
                         <ThemeToggle />
                     </div>
                     <div className="flex gap-8">
-                        <a href="#about" className="text-gray-600 hover:text-gray-900 transition-colors">About</a>
-                        <a href="#contact" className="text-gray-600 hover:text-gray-900 transition-colors">Contact</a>
-                        <a href="#work" className="text-gray-600 hover:text-gray-900 transition-colors">Work</a>
+                        <a href="#about" className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-100 transition-colors">About</a>
+                        <a href="#contact" className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-100 transition-colors">Contact</a>
+                        <a href="#work" className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-100 transition-colors">Work</a>
                     </div>
                 </div>
             </div>

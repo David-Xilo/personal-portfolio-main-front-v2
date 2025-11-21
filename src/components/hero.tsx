@@ -19,7 +19,7 @@ export default function Hero({name, role, description}: HeroProps) {
     if (status === 'loading') {
         return (
             <div className="min-h-screen flex items-center justify-center">
-                <div className="text-gray-600">Loading...</div>
+                <div className="text-gray-600 dark:text-gray-400">Loading...</div>
             </div>
         );
     }
@@ -40,37 +40,37 @@ export default function Hero({name, role, description}: HeroProps) {
                     animate={{opacity: 1, y: 0}}
                     transition={{duration: 0.5}}
                 >
-                    <h1 className="text-5xl md:text-7xl font-bold mb-6 text-gray-900">{name}</h1>
-                    <p className="text-xl md:text-2xl text-gray-600 mb-4">{role}</p>
-                    <p className="text-lg text-gray-500 mb-12 max-w-2xl mx-auto leading-relaxed">
+                    <h1 className="text-5xl md:text-7xl font-bold mb-6 text-gray-900 dark:text-gray-100">{name}</h1>
+                    <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-400 mb-4">{role}</p>
+                    <p className="text-lg text-gray-500 dark:text-gray-400 mb-12 max-w-2xl mx-auto leading-relaxed">
                         {description}
                     </p>
 
                     <div className="flex justify-center gap-6 mb-16">
                         <a
                             href={`mailto:${message?.email}`}
-                            className="p-3 bg-gray-100 hover:bg-gray-200 rounded-lg transition-colors"
+                            className="p-3 bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg transition-colors"
                             aria-label="Email"
                         >
-                            <Mail className="w-6 h-6 text-gray-700"/>
+                            <Mail className="w-6 h-6 text-gray-700 dark:text-gray-300"/>
                         </a>
                         <a
                             href={message?.github}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="p-3 bg-gray-100 hover:bg-gray-200 rounded-lg transition-colors"
+                            className="p-3 bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg transition-colors"
                             aria-label="GitHub"
                         >
-                            <Github className="w-6 h-6 text-gray-700"/>
+                            <Github className="w-6 h-6 text-gray-700 dark:text-gray-300"/>
                         </a>
                         <a
                             href={message?.linkedin}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="p-3 bg-gray-100 hover:bg-gray-200 rounded-lg transition-colors"
+                            className="p-3 bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg transition-colors"
                             aria-label="LinkedIn"
                         >
-                            <Linkedin className="w-6 h-6 text-gray-700"/>
+                            <Linkedin className="w-6 h-6 text-gray-700 dark:text-gray-300"/>
                         </a>
                     </div>
 

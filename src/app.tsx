@@ -11,7 +11,7 @@ function App() {
 
     // TODO - add dark mode toggle
     return (
-        <div className="min-h-screen">
+        <div className="min-h-screen bg-white dark:bg-gray-950">
             <Navigation/>
             <div id={"hero"}>
                 <Hero
