@@ -4,6 +4,7 @@ import Projects from './components/projects';
 import Footer from './components/footer';
 import About from "./components/about.tsx";
 import Contact from "./components/contact.tsx";
+import Section from "./components/section.tsx";
 
 function App() {
 
@@ -20,17 +21,11 @@ function App() {
                 />
             </div>
 
-            <div id="about">
-                <About/>
-            </div>
+            <Section id={'about'} previousSection={'hero'} nextSection={'contact'} Component={About} />
 
-            <div id="contact">
-                <Contact/>
-            </div>
+            <Section id={'contact'} previousSection={'about'} nextSection={'work'} Component={Contact} />
 
-            <div id="work">
-                <Projects />
-            </div>
+            <Section id={'work'} previousSection={'contact'} Component={Projects} />
 
 
             <Footer/>
