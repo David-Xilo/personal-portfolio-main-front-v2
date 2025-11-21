@@ -13,6 +13,27 @@ interface RepositoryInfo {
     link_to_git: string
 }
 
+// Projects structure
+/*
+* [
+  [
+    {
+      "description": "string",
+      "link_to_project": "string",
+      "project_type": "string",
+      "repositories": [
+        {
+          "description": "string",
+          "link_to_git": "string",
+          "title": "string"
+        }
+      ],
+      "title": "string"
+    }
+  ]
+]
+* */
+
 interface Project {
     title: string
     description: string

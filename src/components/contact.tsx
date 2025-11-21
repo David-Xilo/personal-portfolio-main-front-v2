@@ -1,5 +1,16 @@
 import { motion } from 'framer-motion';
 
+// Contact structure
+/*
+* {
+  "credly": "string",
+  "email": "string",
+  "github": "string",
+  "linkedin": "string",
+  "name": "string"
+}
+* */
+
 export default function Contact() {
     const contactLinks = [
         {

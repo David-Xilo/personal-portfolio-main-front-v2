@@ -9,6 +9,28 @@ interface ProjectsProps {
     category?: string;
 }
 
+// Projects structure
+/*
+* [
+  [
+    {
+      "description": "string",
+      "link_to_project": "string",
+      "project_type": "string",
+      "repositories": [
+        {
+          "description": "string",
+          "link_to_git": "string",
+          "title": "string"
+        }
+      ],
+      "title": "string"
+    }
+  ]
+]
+* */
+
+
 // TODO - add complex card with repos inside project card
 export default function Projects({}: ProjectsProps) {
     const projectsPath = '/tech/projects'
