@@ -9,7 +9,7 @@ export const handlers = [
             message: {
                 name: 'John Doe',
                 email: 'john.doe@mail.com',
-                linkedin: 'linkedin/johndoe',
+                linkedin: 'https://linkedin/johndoe',
                 github: 'https://github.com/johndoe',
                 credly: 'https://credly.com/johndoe',
             },
