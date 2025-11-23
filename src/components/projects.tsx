@@ -60,10 +60,6 @@ export default function Projects({}: ProjectsProps) {
         )
     }
 
-    // const filteredProjects = category
-    // ? projects?.filter(p => p.category === category)
-    // : projects;
-
     return (
         <>
             <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900 dark:text-gray-100">
