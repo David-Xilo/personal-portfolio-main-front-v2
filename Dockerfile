@@ -1,27 +1,26 @@
-FROM node:21.1.0-bookworm AS build
-
-ARG NODE_ENV
-ENV NODE_ENV=${NODE_ENV}
-
-ARG VITE_API_URL
-ENV VITE_API_URL=${VITE_API_URL}
+FROM node:21.1.0-bookworm AS builder
 
 WORKDIR /app
 COPY package*.json ./
 RUN npm install --include=dev
 COPY . .
 
-#RUN #if [ "$NODE_ENV" = "development" ] ; then npm run dev ; else npm run build ; fi
+ARG NODE_ENV=production
+ENV NODE_ENV=${NODE_ENV}
+
+ARG VITE_API_URL
+ENV VITE_API_URL=${VITE_API_URL}
+
 RUN npm run build
 
-# Production stage
-FROM nginx:alpine
+FROM nginx:alpine AS production
 
-# Copy built app
-COPY --from=build /app/dist /usr/share/nginx/html
+COPY --from=builder /app/dist /usr/share/nginx/html
 
-# Copy nginx config for SPA routing
 COPY nginx.conf /etc/nginx/nginx.conf
 
+RUN chown -R nginx:nginx /usr/share/nginx/html
+
 EXPOSE 80
+
 CMD ["nginx", "-g", "daemon off;"]
