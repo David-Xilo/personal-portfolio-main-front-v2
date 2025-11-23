@@ -73,15 +73,6 @@ export default function Hero({name, role, description}: HeroProps) {
                             <Linkedin className="w-6 h-6 text-gray-700 dark:text-gray-300"/>
                         </a>
                     </div>
-
-                    {/*<motion.div*/}
-                    {/*    animate={{y: [0, 10, 0]}}*/}
-                    {/*    transition={{repeat: Infinity, duration: 2}}*/}
-                    {/*>*/}
-                    {/*    // TODO - add scroll to work section*/}
-                    {/*    // TODO - revert arrow after scroll to work section*/}
-                    {/*    <ArrowDown className="w-6 h-6 text-gray-400 mx-auto"/>*/}
-                    {/*</motion.div>*/}
                     <motion.div
                         animate={{y: [0, 10, 0]}}
                         transition={{repeat: Infinity, duration: 2}}
