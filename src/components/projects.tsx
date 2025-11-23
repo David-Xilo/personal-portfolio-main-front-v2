@@ -33,7 +33,7 @@ interface ProjectsProps {
 
 // TODO - add complex card with repos inside project card
 export default function Projects({}: ProjectsProps) {
-    const projectsPath = '/tech/projects'
+    const projectsPath = '/projects'
     const {status, message: projects, error} = useApiGet<Project[]>(projectsPath, [])
 
     if (status === 'loading') {
