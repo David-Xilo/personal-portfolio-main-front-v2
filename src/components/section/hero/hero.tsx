@@ -1,10 +1,10 @@
 import {motion} from 'framer-motion';
-import ArrowDown from "../icons/arrow_down.tsx";
-import Linkedin from "../icons/linkedin.tsx";
-import Github from "../icons/github.tsx";
-import Mail from "../icons/mail.tsx";
-import {useApiGet} from "../api/use_api_get.tsx";
-import type {ContactInfo} from "../api/types.ts";
+import ArrowDown from "../../../icons/arrow_down.tsx";
+import Linkedin from "../../../icons/linkedin.tsx";
+import Github from "../../../icons/github.tsx";
+import Mail from "../../../icons/mail.tsx";
+import {useApiGet} from "../../../api/use_api_get.tsx";
+import type {ContactInfo} from "../../../api/types.ts";
 
 interface HeroProps {
     name: string;

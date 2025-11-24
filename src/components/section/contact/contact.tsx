@@ -1,6 +1,6 @@
 import {motion} from 'framer-motion';
-import {useApiGet} from "../api/use_api_get.tsx";
-import type {ContactInfo} from "../api/types.ts";
+import {useApiGet} from "../../../api/use_api_get.tsx";
+import type {ContactInfo} from "../../../api/types.ts";
 
 // Contact structure
 /*

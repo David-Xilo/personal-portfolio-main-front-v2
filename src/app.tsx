@@ -1,10 +1,10 @@
-import Navigation from './components/navigation';
-import Hero from './components/hero';
-import Projects from './components/projects';
-import Footer from './components/footer';
-import About from "./components/about.tsx";
-import Contact from "./components/contact.tsx";
-import Section from "./components/section.tsx";
+import Navigation from './components/general/navigation.tsx';
+import Hero from './components/section/hero/hero.tsx';
+import Projects from './components/section/work/projects.tsx';
+import Footer from './components/general/footer.tsx';
+import About from "./components/section/about/about.tsx";
+import Contact from "./components/section/contact/contact.tsx";
+import Section from "./components/section/section.tsx";
 
 function App() {
 

@@ -1,8 +1,8 @@
 import {motion} from 'framer-motion';
-import Github from "../icons/github.tsx";
-import ExternalLink from "../icons/external_link.tsx";
-import {useApiGet} from "../api/use_api_get.tsx";
-import type {Project} from "../api/types.ts";
+import Github from "../../../icons/github.tsx";
+import ExternalLink from "../../../icons/external_link.tsx";
+import {useApiGet} from "../../../api/use_api_get.tsx";
+import type {Project} from "../../../api/types.ts";
 
 interface ProjectsProps {
     projects?: Project[];
