@@ -2,9 +2,9 @@
 interface ContactInfo {
     name: string
     email: string
-    linkedin: string
-    github: string
-    credly: string
+    linkedin: string | null
+    github: string | null
+    credly: string | null
 }
 
 interface RepositoryInfo {

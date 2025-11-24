@@ -6,6 +6,7 @@ import Mail from "../../../icons/mail.tsx";
 import {useApiGet} from "../../../api/use_api_get.tsx";
 import type {ContactInfo} from "../../../api/types.ts";
 import ErrorDisplay from "../../general/error.tsx";
+import Credly from "../../../icons/credly.tsx";
 
 interface HeroProps {
     name: string;
@@ -15,7 +16,7 @@ interface HeroProps {
 
 export default function Hero({name, role, description}: HeroProps) {
     const contactPath = '/contact'
-    const {status, message, error} = useApiGet<ContactInfo>(contactPath, null)
+    const {status, message: contact, error} = useApiGet<ContactInfo>(contactPath, null)
 
     if (status === 'loading') {
         return (
@@ -48,33 +49,42 @@ export default function Hero({name, role, description}: HeroProps) {
                         {description}
                     </p>
 
-                    <div className="flex justify-center gap-6 mb-16">
-                        <a
-                            href={`mailto:${message?.email}`}
+                    {contact && (<div className="flex justify-center gap-6 mb-16">
+                        {contact.email !== '' && (<a
+                            href={`mailto:${contact.email}`}
                             className="p-3 bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg transition-colors"
                             aria-label="Email"
                         >
                             <Mail className="w-6 h-6 text-gray-700 dark:text-gray-300"/>
-                        </a>
-                        <a
-                            href={message?.github}
+                        </a>)}
+                        {contact.github && contact.github !== '' && (<a
+                            href={contact.github}
                             target="_blank"
                             rel="noopener noreferrer"
                             className="p-3 bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg transition-colors"
                             aria-label="GitHub"
                         >
                             <Github className="w-6 h-6 text-gray-700 dark:text-gray-300"/>
-                        </a>
-                        <a
-                            href={message?.linkedin}
+                        </a>)}
+                        {contact.linkedin && contact.linkedin !== '' && (<a
+                            href={contact.linkedin}
                             target="_blank"
                             rel="noopener noreferrer"
                             className="p-3 bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg transition-colors"
                             aria-label="LinkedIn"
                         >
                             <Linkedin className="w-6 h-6 text-gray-700 dark:text-gray-300"/>
-                        </a>
-                    </div>
+                        </a>)}
+                        {contact.credly && contact.credly !== '' && (<a
+                            href={contact.credly}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="p-3 bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg transition-colors"
+                            aria-label="LinkedIn"
+                        >
+                            <Credly className="w-6 h-6 text-gray-700 dark:text-gray-300"/>
+                        </a>)}
+                    </div>)}
                     <motion.div
                         animate={{y: [0, 10, 0]}}
                         transition={{repeat: Infinity, duration: 2}}

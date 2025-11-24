@@ -4,12 +4,10 @@ export default function About() {
     const skills = [
         'Backend Development',
         'System Architecture',
-        'Microservices',
         'API Design',
-        'Database Design',
-        'Cloud Infrastructure',
-        'Security Best Practices',
+        'Security',
         'CI/CD',
+        'Finance',
     ];
 
     return (
@@ -43,8 +41,7 @@ export default function About() {
                             not only performant but also secure and compliant.
                         </p>
                         <p>
-                            I'm passionate about clean code, effective system design, and
-                            mentoring teams to deliver high-quality software solutions.
+                            I'm passionate about effective system design, scalable solutions and learning new things
                         </p>
                     </div>
                 </motion.div>

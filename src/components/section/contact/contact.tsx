@@ -69,7 +69,7 @@ export default function Contact() {
                     </p>
                     {contact && (
                         <div className="space-y-6">
-                            {contact.email && (
+                            {contact.email !== '' && (
                                 <motion.div
                                     key='Email'
                                     initial={{opacity: 0, x: -20}}
