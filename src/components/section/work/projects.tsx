@@ -1,8 +1,8 @@
 import {motion} from 'framer-motion';
-import Github from "../../../icons/github.tsx";
 import ExternalLink from "../../../icons/external_link.tsx";
 import {useApiGet} from "../../../api/use_api_get.tsx";
 import type {Project} from "../../../api/types.ts";
+import {RepositoryCarousel} from "./repository.tsx";
 
 interface ProjectsProps {
     projects?: Project[];
@@ -95,30 +95,17 @@ export default function Projects({}: ProjectsProps) {
                                 <h3 className="text-xl font-semibold text-gray-900 dark:text-gray-100">
                                     {project.title}
                                 </h3>
-                                <div className="flex gap-2">
-                                    {project.repositories && project.repositories.at(0)?.link_to_git && (
-                                        <a
-                                            href={project.repositories.at(0)?.link_to_git}
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            className="p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded transition-colors"
-                                            aria-label="View source"
-                                        >
-                                            <Github className="w-4 h-4 text-gray-600 dark:text-gray-400"/>
-                                        </a>
-                                    )}
-                                    {project.link_to_project && (
-                                        <a
-                                            href={project.link_to_project}
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            className="p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded transition-colors"
-                                            aria-label="View live"
-                                        >
-                                            <ExternalLink className="w-4 h-4 text-gray-600 dark:text-gray-400"/>
-                                        </a>
-                                    )}
-                                </div>
+                                {project.link_to_project && (
+
+                                    <a href={project.link_to_project}
+                                       target="_blank"
+                                       rel="noopener noreferrer"
+                                       className="p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded transition-colors"
+                                       aria-label="View live project"
+                                    >
+                                        <ExternalLink className="w-4 h-4 text-gray-600 dark:text-gray-400"/>
+                                    </a>
+                                )}
                             </div>
 
                             <p className="text-gray-600 dark:text-gray-400 mb-4 text-sm leading-relaxed">
@@ -135,6 +122,10 @@ export default function Projects({}: ProjectsProps) {
                             {/*    </span>*/}
                             {/*  ))}*/}
                             {/*</div>*/}
+
+                            {project.repositories && project.repositories.length > 0 && (
+                                <RepositoryCarousel repositories={project.repositories}/>
+                            )}
                         </div>
                     </motion.article>
                 ))}
