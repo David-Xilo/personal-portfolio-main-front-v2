@@ -5,14 +5,14 @@ import { handleApiError, handleUnexpectedError } from './error_handler.ts'
 interface ApiResponse<T> {
     status: 'loading' | 'success' | 'error' | ''
     message: T | null
-    error: string | null
+    error: string
 }
 
 const useApiGet = <T,>(path: string, initialValue: T | null): ApiResponse<T> => {
     const [data, setData] = useState<ApiResponse<T>>({
         status: 'loading',
         message: initialValue,
-        error: null,
+        error: '',
     })
 
     useEffect(() => {
@@ -31,7 +31,7 @@ const useApiGet = <T,>(path: string, initialValue: T | null): ApiResponse<T> => 
                 const normalizedData: ApiResponse<T> = {
                     status: 'success',
                     message: response.message,
-                    error: null,
+                    error: '',
                 }
                 setData(normalizedData)
             } catch (err) {

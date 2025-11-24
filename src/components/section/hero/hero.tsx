@@ -5,6 +5,7 @@ import Github from "../../../icons/github.tsx";
 import Mail from "../../../icons/mail.tsx";
 import {useApiGet} from "../../../api/use_api_get.tsx";
 import type {ContactInfo} from "../../../api/types.ts";
+import ErrorDisplay from "../../general/error.tsx";
 
 interface HeroProps {
     name: string;
@@ -13,7 +14,7 @@ interface HeroProps {
 }
 
 export default function Hero({name, role, description}: HeroProps) {
-    const contactPath = '/about/contact'
+    const contactPath = '/contact'
     const {status, message, error} = useApiGet<ContactInfo>(contactPath, null)
 
     if (status === 'loading') {
@@ -26,9 +27,10 @@ export default function Hero({name, role, description}: HeroProps) {
 
     if (status === 'error') {
         return (
-            <div className="min-h-screen flex items-center justify-center">
-                <div className="text-red-600">Error: {error}</div>
-            </div>
+            <ErrorDisplay error={error} />
+            // <div className="min-h-screen flex items-center justify-center">
+            //     <div className="text-red-600">Error: {error}</div>
+            // </div>
         );
     }
 

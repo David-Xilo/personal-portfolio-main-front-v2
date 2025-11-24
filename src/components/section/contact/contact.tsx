@@ -1,6 +1,7 @@
 import {motion} from 'framer-motion';
 import {useApiGet} from "../../../api/use_api_get.tsx";
 import type {ContactInfo} from "../../../api/types.ts";
+import ErrorDisplay from "../../general/error.tsx";
 
 // Contact structure
 /*
@@ -28,17 +29,18 @@ export default function Contact() {
 
     if (status === 'error') {
         return (
-            <div className="flex flex-col items-center justify-center p-8 text-center">
-                <div className="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-md p-4">
-                    <h3 className="text-lg font-medium text-red-800 dark:text-red-400 mb-2">
-                        Error Loading Projects
-                    </h3>
-                    <p className="text-red-600 dark:text-red-300">
-                        {error ||
-                            `An unexpected error occurred while loading Projects.`}
-                    </p>
-                </div>
-            </div>
+            <ErrorDisplay error={error} />
+            // <div className="flex flex-col items-center justify-center p-8 text-center">
+            //     <div className="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-md p-4">
+            //         <h3 className="text-lg font-medium text-red-800 dark:text-red-400 mb-2">
+            //             Error Loading Projects
+            //         </h3>
+            //         <p className="text-red-600 dark:text-red-300">
+            //             {error ||
+            //                 `An unexpected error occurred while loading Projects.`}
+            //         </p>
+            //     </div>
+            // </div>
         )
     }
 

@@ -2,30 +2,6 @@ import {StrictMode} from 'react'
 import {createRoot} from 'react-dom/client'
 import './index.css'
 import App from './app.tsx'
-// import React from 'react'
-
-// async function enableMocking() {
-//     // if (process.env.NODE_ENV !== 'development') {
-//     //     return
-//     // }
-//
-//     const { worker } = await import('mocks/browser.ts')
-//     return worker.start()
-// }
-
-// enableMocking().then(() => {
-//     createRoot(document.getElementById('root')!).render(
-//         <StrictMode>
-//             <App />
-//         </StrictMode>,
-//     )
-// })
-
-// createRoot(document.getElementById('root')!).render(
-//   <StrictMode>
-//     <App />
-//   </StrictMode>,
-// )
 
 
 function renderApp() {
@@ -41,9 +17,7 @@ function renderApp() {
     }
 }
 
-// if (process.env.NODE_ENV === 'production') {
-//     renderApp()
-// } else if (process.env.NODE_ENV === 'development') {
+
 async function clearServiceWorkers() {
     if ('serviceWorker' in navigator) {
         try {
@@ -57,6 +31,7 @@ async function clearServiceWorkers() {
         }
     }
 }
+
 
 async function enableMocking() {
     try {
@@ -95,7 +70,8 @@ async function initDevelopmentApp() {
     }
 }
 
-initDevelopmentApp()
-// } else {
-//     renderApp()
-// }
+if (import.meta.env.MODE === 'production') {
+    renderApp()
+} else if (import.meta.env.MODE === 'development') {
+    initDevelopmentApp()
+}
