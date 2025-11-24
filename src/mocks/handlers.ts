@@ -23,6 +23,7 @@ export const handlers = [
                     title: 'tech project title',
                     description: 'project description',
                     link_to_project: 'https://github.com/',
+                    project_type: 'personal',
                     repositories: [
                         {
                             title: 'repo 1',

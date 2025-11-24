@@ -30,6 +30,28 @@ interface ProjectsProps {
 ]
 * */
 
+// TODO - add images to cloudinary and use them here
+{/*{project.image_url && (*/}
+{/*  <div className="aspect-video bg-gray-200 overflow-hidden">*/}
+{/*    <img*/}
+{/*      src={project.image_url}*/}
+{/*      alt={project.title}*/}
+{/*      className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"*/}
+{/*    />*/}
+{/*  </div>*/}
+{/*)}*/}
+
+{/*<div className="flex flex-wrap gap-2">*/}
+{/*  {project.technologies.map(tech => (*/}
+{/*    <span */}
+{/*      key={tech}*/}
+{/*      className="px-3 py-1 bg-gray-100 text-gray-700 text-xs rounded-full"*/}
+{/*    >*/}
+{/*      {tech}*/}
+{/*    </span>*/}
+{/*  ))}*/}
+{/*</div>*/}
+
 
 // TODO - add complex card with repos inside project card
 export default function Projects({}: ProjectsProps) {
@@ -79,16 +101,7 @@ export default function Projects({}: ProjectsProps) {
                         transition={{duration: 0.5, delay: index * 0.1}}
                         className="bg-white dark:bg-gray-900 rounded-lg overflow-hidden hover:shadow-lg transition-shadow"
                     >
-                        // TODO - add images to cloudinary and use them here
-                        {/*{project.image_url && (*/}
-                        {/*  <div className="aspect-video bg-gray-200 overflow-hidden">*/}
-                        {/*    <img*/}
-                        {/*      src={project.image_url}*/}
-                        {/*      alt={project.title}*/}
-                        {/*      className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"*/}
-                        {/*    />*/}
-                        {/*  </div>*/}
-                        {/*)}*/}
+
 
                         <div className="p-6">
                             <div className="flex items-start justify-between mb-3">
@@ -111,17 +124,6 @@ export default function Projects({}: ProjectsProps) {
                             <p className="text-gray-600 dark:text-gray-400 mb-4 text-sm leading-relaxed">
                                 {project.description}
                             </p>
-
-                            {/*<div className="flex flex-wrap gap-2">*/}
-                            {/*  {project.technologies.map(tech => (*/}
-                            {/*    <span */}
-                            {/*      key={tech}*/}
-                            {/*      className="px-3 py-1 bg-gray-100 text-gray-700 text-xs rounded-full"*/}
-                            {/*    >*/}
-                            {/*      {tech}*/}
-                            {/*    </span>*/}
-                            {/*  ))}*/}
-                            {/*</div>*/}
 
                             {project.repositories && project.repositories.length > 0 && (
                                 <RepositoryCarousel repositories={project.repositories}/>
