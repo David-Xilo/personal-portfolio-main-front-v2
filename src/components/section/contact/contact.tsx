@@ -30,17 +30,6 @@ export default function Contact() {
     if (status === 'error') {
         return (
             <ErrorDisplay error={error} />
-            // <div className="flex flex-col items-center justify-center p-8 text-center">
-            //     <div className="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-md p-4">
-            //         <h3 className="text-lg font-medium text-red-800 dark:text-red-400 mb-2">
-            //             Error Loading Projects
-            //         </h3>
-            //         <p className="text-red-600 dark:text-red-300">
-            //             {error ||
-            //                 `An unexpected error occurred while loading Projects.`}
-            //         </p>
-            //     </div>
-            // </div>
         )
     }
 
@@ -50,7 +39,7 @@ export default function Contact() {
                 Contact
             </h2>
             <p className="text-lg text-gray-600 dark:text-gray-400 mb-16 max-w-2xl">
-                Let's connect and discuss how we can work together.
+                Let’s connect, I’d love to explore how we might work together or share insights
             </p>
 
             <div className="max-w-2xl">
@@ -62,10 +51,7 @@ export default function Contact() {
                     className="bg-white dark:bg-gray-900 rounded-lg p-8 shadow-sm"
                 >
                     <p className="text-gray-600 dark:text-gray-400 mb-8 leading-relaxed">
-                        I'm always interested in hearing about new opportunities,
-                        collaborations, or just having a conversation about technology
-                        and software engineering. Feel free to reach out through any
-                        of the channels below.
+                        I’m always open to hearing about new roles, collaboration ideas, or simply chatting about technology and engineering. You can reach me at any of the links below
                     </p>
                     {contact && (
                         <div className="space-y-6">

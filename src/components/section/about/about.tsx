@@ -2,12 +2,14 @@ import { motion } from 'framer-motion';
 
 export default function About() {
     const skills = [
-        'Backend Development',
-        'System Architecture',
-        'API Design',
-        'Security',
-        'CI/CD',
-        'Finance',
+        'System Architecture & Design',
+        'Low-Latency, High-Throughput Systems',
+        'Secure Backend Services',
+        'Real-Time Data Pipelines',
+        'Risk-Aware Engineering',
+        'Finance-Grade Infrastructure',
+        'CI/CD & DevOps Practices',
+        'API & Integration Design'
     ];
 
     return (
@@ -16,7 +18,7 @@ export default function About() {
                 About
             </h2>
             <p className="text-lg text-gray-600 dark:text-gray-400 mb-16 max-w-2xl">
-                Building robust systems at the intersection of technology, security, and finance.
+                Designing secure systems, shaping high-performance infrastructure, and bridging technology with finance.
             </p>
 
             <div className="grid md:grid-cols-2 gap-12">
@@ -31,17 +33,17 @@ export default function About() {
                     </h3>
                     <div className="space-y-4 text-gray-600 dark:text-gray-400 leading-relaxed">
                         <p>
-                            I'm a Senior Software Engineer with a focus on backend development
-                            and scalable system architecture. My expertise lies in designing and
-                            implementing robust solutions that handle complex business requirements.
+                            Senior Engineer with experience designing low-latency, high-throughput systems, building secure backend services, and driving real-time data pipelines.
+                            I focus on system integrity, risk control, and reliable data flows in market infrastructure.
+                            I enjoy solving the hard problems and turning them into stable, secure solutions.
                         </p>
                         <p>
-                            With experience spanning technology, security, and finance sectors,
-                            I bring a comprehensive understanding of building systems that are
-                            not only performant but also secure and compliant.
+                            When I’m not working on systems, I enjoy simplifying complexity, designing secure services, and watching data move smoothly.
+                            Outside of code, you’ll often find me reading about market trends or learning something new from my personal projects.
                         </p>
                         <p>
-                            I'm passionate about effective system design, scalable solutions and learning new things
+                            In my downtime you’ll often find me curled up with a good book on literature or history and then out for a swim or a run to clear my mind and move my body.
+                            I believe in balancing the cerebral and the physical so I can bring fresh energy and ideas into everything I do.
                         </p>
                     </div>
                 </motion.div>

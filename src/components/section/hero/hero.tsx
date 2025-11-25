@@ -29,9 +29,6 @@ export default function Hero({name, role, description}: HeroProps) {
     if (status === 'error') {
         return (
             <ErrorDisplay error={error} />
-            // <div className="min-h-screen flex items-center justify-center">
-            //     <div className="text-red-600">Error: {error}</div>
-            // </div>
         );
     }
 

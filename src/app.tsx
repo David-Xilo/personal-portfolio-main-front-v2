@@ -15,17 +15,12 @@ function App() {
                 <Hero
                     name="David Moura"
                     role="Senior Software Engineer"
-                    description="Specializing in backend development with a passion for building scalable systems across technology, security and finance."
+                    description="Building secure, scalable systems at the intersection of technology, security and finance"
                 />
             </div>
-
             <Section id={'about'} previousSection={'hero'} nextSection={'contact'} Component={About} />
-
             <Section id={'contact'} previousSection={'about'} nextSection={'work'} Component={Contact} />
-
             <Section id={'work'} previousSection={'contact'} Component={Projects} />
-
-
             <Footer/>
         </div>
     );
