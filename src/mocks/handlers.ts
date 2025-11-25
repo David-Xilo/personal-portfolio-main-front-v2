@@ -4,6 +4,20 @@ import {http, HttpResponse} from 'msw'
 const domain = import.meta.env.VITE_API_URL || ''
 
 export const handlers = [
+    // http.get(`${domain}/contact`, () => {
+    //     const contact = {
+    //         status: 'loading',
+    //     }
+    //     return HttpResponse.json(contact)
+    // }),
+    // http.get(`${domain}/contact`, () => {
+    //     const contact = {
+    //         status: 'error',
+    //         message: null,
+    //         error: 'No internet connection',
+    //     }
+    //     return HttpResponse.json(contact)
+    // }),
     http.get(`${domain}/contact`, () => {
         const contact = {
             message: {
@@ -16,6 +30,20 @@ export const handlers = [
         }
         return HttpResponse.json(contact)
     }),
+    // http.get(`${domain}/projects`, () => {
+    //     const contact = {
+    //         status: 'loading',
+    //     }
+    //     return HttpResponse.json(contact)
+    // }),
+    // http.get(`${domain}/projects`, () => {
+    //     const contact = {
+    //         status: 'error',
+    //         message: null,
+    //         error: 'No internet connection',
+    //     }
+    //     return HttpResponse.json(contact)
+    // }),
     http.get(`${domain}/projects`, () => {
         const projects = {
             message: [
