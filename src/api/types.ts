@@ -39,6 +39,7 @@ interface Project {
     description: string
     repositories: RepositoryInfo[]
     link_to_project: string
+    image_url: string
 }
 
 export type {Project, RepositoryInfo, ContactInfo}
