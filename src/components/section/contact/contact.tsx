@@ -91,7 +91,7 @@ export default function Contact() {
                                     </a>
                                 </motion.div>
                             )}
-                            {contact.linkedin && (
+                            {contact.linkedin && contact.linkedin !== '' && (
                                 <motion.div
                                     key='LinkedIn'
                                     initial={{opacity: 0, x: -20}}
@@ -113,7 +113,7 @@ export default function Contact() {
                                     </a>
                                 </motion.div>
                             )}
-                            {contact.github && (
+                            {contact.github && contact.github !== '' && (
                                 <motion.div
                                     key='Github'
                                     initial={{opacity: 0, x: -20}}
@@ -135,7 +135,7 @@ export default function Contact() {
                                     </a>
                                 </motion.div>
                             )}
-                            {contact.credly && (
+                            {contact.credly && contact.credly !== '' && (
                                 <motion.div
                                     key='Credly'
                                     initial={{opacity: 0, x: -20}}
