@@ -13,7 +13,7 @@ interface RepositoryInfo {
 const RepositoryCard = ({repository}: { repository: RepositoryInfo }) => {
     return (
         <div
-            className="flex-shrink-0 w-full p-4 bg-gray-50 dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700">
+            className="flex-shrink-0 w-full p-4 bg-gray-200 dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700">
             <h4 className="text-sm font-semibold text-gray-900 dark:text-gray-100 mb-2">
                 {repository.title}
             </h4>
@@ -57,7 +57,7 @@ const RepositoryCarousel = ({ repositories }: { repositories: RepositoryInfo[] }
                     <div className="flex items-center gap-1">
                         <button
                             onClick={goToPrevious}
-                            className="p-1 rounded hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+                            className="p-1 rounded hover:bg-gray-200 dark:hover:bg-gray-800 transition-colors"
                             aria-label="Previous repository"
                         >
                             <ArrowLeft

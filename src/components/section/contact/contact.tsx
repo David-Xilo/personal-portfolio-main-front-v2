@@ -3,17 +3,6 @@ import {useApiGet} from "../../../api/use_api_get.tsx";
 import type {ContactInfo} from "../../../api/types.ts";
 import ErrorDisplay from "../../general/error.tsx";
 
-// Contact structure
-/*
-* {
-  "credly": "string",
-  "email": "string",
-  "github": "string",
-  "linkedin": "string",
-  "name": "string"
-}
-* */
-
 export default function Contact() {
 
     const contactPath = '/contact'
@@ -48,7 +37,7 @@ export default function Contact() {
                     whileInView={{opacity: 1, y: 0}}
                     viewport={{once: true}}
                     transition={{duration: 0.5, delay: 0.2}}
-                    className="bg-white dark:bg-gray-900 rounded-lg p-8 shadow-sm"
+                    className="bg-gray-100 dark:bg-gray-900 rounded-lg p-8 shadow-sm"
                 >
                     <p className="text-gray-600 dark:text-gray-400 mb-8 leading-relaxed">
                         I’m always open to hearing about new roles, collaboration ideas, or simply chatting about technology and engineering. You can reach me at any of the links below

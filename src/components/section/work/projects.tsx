@@ -46,7 +46,7 @@ export default function Projects({}: ProjectsProps) {
                         whileInView={{opacity: 1, y: 0}}
                         viewport={{once: true}}
                         transition={{duration: 0.5, delay: index * 0.1}}
-                        className="bg-white dark:bg-gray-900 rounded-lg overflow-hidden hover:shadow-lg transition-shadow"
+                        className="bg-gray-100 dark:bg-gray-900 rounded-lg overflow-hidden hover:shadow-lg transition-shadow"
                     >
                         <div className="p-6">
                             <div className="flex flex-col sm:flex-row sm:items-center gap-4 mb-3 ">
