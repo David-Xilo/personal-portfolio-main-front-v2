@@ -9,13 +9,15 @@ interface ApiResponse<T> {
 }
 
 const useApiGet = <T,>(path: string, initialValue: T | null): ApiResponse<T> => {
-    const [data, setData] = useState<ApiResponse<T>>({
+    const loadingMessage: ApiResponse<T> = {
         status: 'loading',
         message: initialValue,
         error: '',
-    })
+    }
+    const [data, setData] = useState<ApiResponse<T>>(loadingMessage)
 
     useEffect(() => {
+        setData(loadingMessage)
         const controller = new AbortController()
 
         const fetchData = async () => {

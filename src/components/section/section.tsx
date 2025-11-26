@@ -23,6 +23,7 @@ export default function Section( { id, previousSection, nextSection, Component}:
                         });
                     }}
                     className="cursor-pointer mb-8"
+                    aria-label='PreviousSection'
                 >
                     <ArrowUp className="w-6 h-6 text-gray-400 dark:text-gray-500 mx-auto"/>
                 </motion.div>)}
@@ -43,6 +44,7 @@ export default function Section( { id, previousSection, nextSection, Component}:
                         });
                     }}
                     className="cursor-pointer"
+                    aria-label='NextSection'
                 >
                     <ArrowDown className="w-6 h-6 text-gray-400 dark:text-gray-500 mx-auto"/>
                 </motion.div>)}

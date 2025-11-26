@@ -33,7 +33,7 @@ export const handleApiError = (err: unknown): ErrorHandlerResult => {
                 errorMessage = 'Something went wrong'
         }
     } else if (err instanceof Error) {
-        errorMessage = 'Something went wrong'
+        errorMessage = err.message
     }
 
     return {errorMessage, shouldReturn: false}
