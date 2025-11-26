@@ -1,7 +1,7 @@
-import Github from "../../../icons/github.tsx";
+import Github from "../../icons/github.tsx";
 import {useState} from "react";
-import ArrowRight from "../../../icons/arrow_right.tsx";
-import ArrowLeft from "../../../icons/arrow_left.tsx";
+import ArrowRight from "../../icons/arrow_right.tsx";
+import ArrowLeft from "../../icons/arrow_left.tsx";
 
 
 interface RepositoryInfo {

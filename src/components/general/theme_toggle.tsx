@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
-import { Sun } from '../../icons/sun.tsx';
-import { Moon } from '../../icons/moon.tsx';
+import { Sun } from '../icons/sun.tsx';
+import { Moon } from '../icons/moon.tsx';
 
 export default function ThemeToggle() {
     const [isDark, setIsDark] = useState(false);

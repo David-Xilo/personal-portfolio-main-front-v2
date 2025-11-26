@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import ArrowDown from "../../icons/arrow_down.tsx";
-import ArrowUp from "../../icons/arrow_up.tsx";
+import ArrowDown from "../icons/arrow_down.tsx";
+import ArrowUp from "../icons/arrow_up.tsx";
 
 interface SectionProps {
     id: string;
