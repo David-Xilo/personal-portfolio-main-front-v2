@@ -8,7 +8,7 @@ const scrollToSection = (sectionId: string) => {
     });
 };
 
-const SectionDown = ({nextSection} : {nextSection: string | undefined}) => {
+const SectionDown = ({nextSection} : {nextSection?: string}) => {
     return (
         nextSection && (
             <button
@@ -28,7 +28,7 @@ const SectionDown = ({nextSection} : {nextSection: string | undefined}) => {
     )
 }
 
-const SectionUp = ({previousSection} : {previousSection: string | undefined}) => {
+const SectionUp = ({previousSection} : {previousSection?: string}) => {
     return (
         previousSection && (
             <button
