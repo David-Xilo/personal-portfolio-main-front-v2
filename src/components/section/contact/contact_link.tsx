@@ -19,6 +19,7 @@ const ContactLink = ({ contact, contactKey }: { contact: string | null; contactK
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-gray-900 dark:text-gray-100 hover:text-gray-600 dark:hover:text-gray-400 transition-colors"
+                    aria-label={contactKey}
                 >
                     {contact}
                 </a>
