@@ -2,13 +2,12 @@ import {motion} from 'framer-motion';
 import Linkedin from "../../icons/linkedin.tsx";
 import Github from "../../icons/github.tsx";
 import Mail from "../../icons/mail.tsx";
-import {useApiGet} from "../../../api/use_api_get.tsx";
-import type {ContactInfo} from "../../../api/types.ts";
 import ErrorDisplay from "../../general/error.tsx";
 import Credly from "../../icons/credly.tsx";
 import HeroLink from "./hero_link.tsx";
 import Loader from "../../general/loader.tsx";
 import {SectionDown} from "../section_nav.tsx";
+import {useContact} from "./contact_provider.tsx";
 
 interface HeroProps {
     name: string;
@@ -17,8 +16,7 @@ interface HeroProps {
 }
 
 export default function Hero({name, role, description}: HeroProps) {
-    const contactPath = '/contact'
-    const {status, message: contact, error} = useApiGet<ContactInfo>(contactPath, null)
+    const {status, contact, error} = useContact()
 
     return (
         <section className="min-h-screen flex items-center justify-center px-6 py-20">

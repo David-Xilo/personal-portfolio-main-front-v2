@@ -4,8 +4,8 @@ import {SectionDown, SectionUp} from "./section_nav.tsx";
 
 interface SectionProps {
     id: string;
-    previousSection: string | null;
-    nextSection: string | null;
+    previousSection?: string;
+    nextSection?: string;
     Component: React.ComponentType;
 }
 

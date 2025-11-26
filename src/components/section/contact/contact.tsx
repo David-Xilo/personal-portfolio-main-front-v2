@@ -1,14 +1,12 @@
 import {motion} from 'framer-motion';
-import {useApiGet} from "../../../api/use_api_get.tsx";
-import type {ContactInfo} from "../../../api/types.ts";
 import ErrorDisplay from "../../general/error.tsx";
 import ContactLink from "./contact_link.tsx";
 import Loader from "../../general/loader.tsx";
+import {useContact} from "./contact_provider.tsx";
 
 const Contact = () => {
 
-    const contactPath = '/contact'
-    const {status, message: contact, error} = useApiGet<ContactInfo>(contactPath, null)
+    const {status, contact, error} = useContact()
 
     return (
         <>
