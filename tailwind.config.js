@@ -13,6 +13,9 @@ export default {
             spacing: {
                 2.5: '10px',
             },
+            animation: {
+                'spin-reverse': 'spin 1s linear infinite reverse',
+            },
         },
     },
     plugins: [],

@@ -4,6 +4,7 @@ import {useApiGet} from "../../../api/use_api_get.tsx";
 import type {Project} from "../../../api/types.ts";
 import {RepositoryCarousel} from "./repository.tsx";
 import ErrorDisplay from "../../general/error.tsx";
+import Loader from "../../general/loader.tsx";
 
 interface ProjectsProps {
     projects?: Project[];
@@ -15,20 +16,6 @@ export default function Projects({}: ProjectsProps) {
     const projectsPath = '/projects'
     const {status, message: projects, error} = useApiGet<Project[]>(projectsPath, [])
 
-    if (status === 'loading') {
-        return (
-            <div className="min-h-screen flex items-center justify-center">
-                <div className="text-gray-600 dark:text-gray-400">Loading...</div>
-            </div>
-        );
-    }
-
-    if (status === 'error') {
-        return (
-            <ErrorDisplay error={error} />
-        )
-    }
-
     return (
         <>
             <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900 dark:text-gray-100">
@@ -38,7 +25,13 @@ export default function Projects({}: ProjectsProps) {
                 A collection of projects spanning my interests and expertise.
             </p>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {status === 'error' && (
+                <ErrorDisplay error={error} />
+            )}
+            {status === 'loading' && (
+                <Loader />
+            )}
+            {status === 'success' && (<div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {projects?.map((project, index) => (
                     <motion.article
                         key={project.title}
@@ -85,6 +78,7 @@ export default function Projects({}: ProjectsProps) {
                     </motion.article>
                 ))}
             </div>
+            )}
         </>
     );
 }

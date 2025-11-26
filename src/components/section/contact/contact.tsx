@@ -3,6 +3,7 @@ import {useApiGet} from "../../../api/use_api_get.tsx";
 import type {ContactInfo} from "../../../api/types.ts";
 import ErrorDisplay from "../../general/error.tsx";
 import ContactLink from "./contact_link.tsx";
+import Loader from "../../general/loader.tsx";
 
 const Contact = () => {
 
@@ -33,9 +34,7 @@ const Contact = () => {
                         <ErrorDisplay error={error} />
                     )}
                     {status === 'loading' && (
-                        <div className="min-h-screen flex items-center justify-center">
-                            <div className="text-gray-600 dark:text-gray-400">Loading...</div>
-                        </div>
+                        <Loader />
                     )}
                     {status === 'success' && contact && (
                         <div className="space-y-6">

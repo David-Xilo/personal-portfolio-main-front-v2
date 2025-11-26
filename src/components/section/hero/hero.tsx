@@ -8,6 +8,7 @@ import type {ContactInfo} from "../../../api/types.ts";
 import ErrorDisplay from "../../general/error.tsx";
 import Credly from "../../icons/credly.tsx";
 import HeroLink from "./hero_link.tsx";
+import Loader from "../../general/loader.tsx";
 
 interface HeroProps {
     name: string;
@@ -36,9 +37,7 @@ export default function Hero({name, role, description}: HeroProps) {
                         <ErrorDisplay error={error} />
                     )}
                     {status === 'loading' && (
-                        <div className="min-h-screen flex items-center justify-center">
-                            <div className="text-gray-600 dark:text-gray-400">Loading...</div>
-                        </div>
+                        <Loader />
                     )}
                     {status === 'success' && contact && (<div className="flex justify-center gap-6 mb-16">
                         <HeroLink contact={contact.email} contactKey='Email' IconComponent={Mail} />
