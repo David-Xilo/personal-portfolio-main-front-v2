@@ -30,7 +30,7 @@ export const handleApiError = (err: unknown): ErrorHandlerResult => {
                 errorMessage = 'Network error - check your connection'
                 break
             default:
-                errorMessage = 'Something went wrong'
+                errorMessage = `Something went wrong: ${err.message}`
         }
     } else if (err instanceof Error) {
         errorMessage = err.message

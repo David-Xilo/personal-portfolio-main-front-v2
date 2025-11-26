@@ -1,5 +1,4 @@
 import {motion} from 'framer-motion';
-import ArrowDown from "../../icons/arrow_down.tsx";
 import Linkedin from "../../icons/linkedin.tsx";
 import Github from "../../icons/github.tsx";
 import Mail from "../../icons/mail.tsx";
@@ -9,6 +8,7 @@ import ErrorDisplay from "../../general/error.tsx";
 import Credly from "../../icons/credly.tsx";
 import HeroLink from "./hero_link.tsx";
 import Loader from "../../general/loader.tsx";
+import {SectionDown} from "../section_nav.tsx";
 
 interface HeroProps {
     name: string;
@@ -34,29 +34,19 @@ export default function Hero({name, role, description}: HeroProps) {
                         {description}
                     </p>
                     {status === 'error' && (
-                        <ErrorDisplay error={error} />
+                        <ErrorDisplay error={error}/>
                     )}
                     {status === 'loading' && (
-                        <Loader />
+                        <Loader/>
                     )}
-                    {status === 'success' && contact && (<div className="flex justify-center gap-6 mb-16">
-                        <HeroLink contact={contact.email} contactKey='Email' IconComponent={Mail} />
-                        <HeroLink contact={contact.github} contactKey='GitHub' IconComponent={Github} />
-                        <HeroLink contact={contact.linkedin} contactKey='LinkedIn' IconComponent={Linkedin} />
-                        <HeroLink contact={contact.credly} contactKey='Credly' IconComponent={Credly} />
-                    </div>)}
-                    <motion.div
-                        animate={{y: [0, 10, 0]}}
-                        transition={{repeat: Infinity, duration: 2}}
-                        onClick={() => {
-                            document.getElementById('about')?.scrollIntoView({
-                                behavior: 'smooth'
-                            });
-                        }}
-                        className="cursor-pointer"
-                    >
-                        <ArrowDown className="w-6 h-6 text-gray-400 mx-auto"/>
-                    </motion.div>
+                    {status === 'success' && contact && (
+                        <div className="flex justify-center gap-6 mb-16">
+                            <HeroLink contact={contact.email} contactKey='Email' IconComponent={Mail}/>
+                            <HeroLink contact={contact.github} contactKey='GitHub' IconComponent={Github}/>
+                            <HeroLink contact={contact.linkedin} contactKey='LinkedIn' IconComponent={Linkedin}/>
+                            <HeroLink contact={contact.credly} contactKey='Credly' IconComponent={Credly}/>
+                        </div>)}
+                    <SectionDown nextSection='about'/>
                 </motion.div>
             </div>
         </section>
