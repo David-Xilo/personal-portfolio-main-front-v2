@@ -7,6 +7,7 @@ import {useApiGet} from "../../../api/use_api_get.tsx";
 import type {ContactInfo} from "../../../api/types.ts";
 import ErrorDisplay from "../../general/error.tsx";
 import Credly from "../../../icons/credly.tsx";
+import HeroLink from "./hero_link.tsx";
 
 interface HeroProps {
     name: string;
@@ -17,20 +18,6 @@ interface HeroProps {
 export default function Hero({name, role, description}: HeroProps) {
     const contactPath = '/contact'
     const {status, message: contact, error} = useApiGet<ContactInfo>(contactPath, null)
-
-    if (status === 'loading') {
-        return (
-            <div className="min-h-screen flex items-center justify-center">
-                <div className="text-gray-600 dark:text-gray-400">Loading...</div>
-            </div>
-        );
-    }
-
-    if (status === 'error') {
-        return (
-            <ErrorDisplay error={error} />
-        );
-    }
 
     return (
         <section className="min-h-screen flex items-center justify-center px-6 py-20">
@@ -45,42 +32,19 @@ export default function Hero({name, role, description}: HeroProps) {
                     <p className="text-lg text-gray-500 dark:text-gray-400 mb-12 max-w-2xl mx-auto leading-relaxed">
                         {description}
                     </p>
-
-                    {contact && (<div className="flex justify-center gap-6 mb-16">
-                        {contact.email !== '' && (<a
-                            href={`mailto:${contact.email}`}
-                            className="p-3 bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg transition-colors"
-                            aria-label="Email"
-                        >
-                            <Mail className="w-6 h-6 text-gray-700 dark:text-gray-300"/>
-                        </a>)}
-                        {contact.github && contact.github !== '' && (<a
-                            href={contact.github}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="p-3 bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg transition-colors"
-                            aria-label="GitHub"
-                        >
-                            <Github className="w-6 h-6 text-gray-700 dark:text-gray-300"/>
-                        </a>)}
-                        {contact.linkedin && contact.linkedin !== '' && (<a
-                            href={contact.linkedin}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="p-3 bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg transition-colors"
-                            aria-label="LinkedIn"
-                        >
-                            <Linkedin className="w-6 h-6 text-gray-700 dark:text-gray-300"/>
-                        </a>)}
-                        {contact.credly && contact.credly !== '' && (<a
-                            href={contact.credly}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="p-3 bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg transition-colors"
-                            aria-label="LinkedIn"
-                        >
-                            <Credly className="w-6 h-6 text-gray-700 dark:text-gray-300"/>
-                        </a>)}
+                    {status === 'error' && (
+                        <ErrorDisplay error={error} />
+                    )}
+                    {status === 'loading' && (
+                        <div className="min-h-screen flex items-center justify-center">
+                            <div className="text-gray-600 dark:text-gray-400">Loading...</div>
+                        </div>
+                    )}
+                    {status === 'success' && contact && (<div className="flex justify-center gap-6 mb-16">
+                        <HeroLink contact={contact.email} contactKey='Email' IconComponent={Mail} />
+                        <HeroLink contact={contact.github} contactKey='GitHub' IconComponent={Github} />
+                        <HeroLink contact={contact.linkedin} contactKey='LinkedIn' IconComponent={Linkedin} />
+                        <HeroLink contact={contact.credly} contactKey='Credly' IconComponent={Credly} />
                     </div>)}
                     <motion.div
                         animate={{y: [0, 10, 0]}}
