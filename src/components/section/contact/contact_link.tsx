@@ -1,7 +1,12 @@
 import {motion} from 'framer-motion';
+import HeroLink from "./hero_link.tsx";
+import React from "react";
 
-// TODO instead of url display the icon
-const ContactLink = ({ contact, contactKey }: { contact: string | null; contactKey: string }) => {
+const ContactLink = ({contact, contactKey, IconComponent}: {
+    contact: string | null;
+    contactKey: string;
+    IconComponent: React.FC<React.SVGProps<SVGSVGElement>>
+}) => {
 
     return (contact && contact !== '' && (
             <motion.div
@@ -15,15 +20,7 @@ const ContactLink = ({ contact, contactKey }: { contact: string | null; contactK
                 <div className="w-24 text-sm font-medium text-gray-500 dark:text-gray-400">
                     {contactKey}
                 </div>
-                <a
-                    href={contactKey === 'Email' ? `mailto:${contact}` : contact}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-gray-900 dark:text-gray-100 hover:text-gray-600 dark:hover:text-gray-400 transition-colors"
-                    aria-label={contactKey}
-                >
-                    {contact}
-                </a>
+                <HeroLink contact={contact} contactKey={contactKey} IconComponent={IconComponent} />
             </motion.div>
         )
     );

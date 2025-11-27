@@ -3,6 +3,10 @@ import ErrorDisplay from "../../general/error.tsx";
 import ContactLink from "./contact_link.tsx";
 import Loader from "../../general/loader.tsx";
 import {useContact} from "./contact_provider.tsx";
+import Mail from "../../icons/mail.tsx";
+import Linkedin from "../../icons/linkedin.tsx";
+import Github from "../../icons/github.tsx";
+import Credly from "../../icons/credly.tsx";
 
 const Contact = () => {
 
@@ -36,10 +40,10 @@ const Contact = () => {
                     )}
                     {status === 'success' && contact && (
                         <div className="space-y-6">
-                            <ContactLink contactKey='Email' contact={contact.email} />
-                            <ContactLink contactKey='LinkedIn' contact={contact.linkedin} />
-                            <ContactLink contactKey='Github' contact={contact.github} />
-                            <ContactLink contactKey='Credly' contact={contact.credly} />
+                            <ContactLink contactKey='Email' contact={contact.email} IconComponent={Mail} />
+                            <ContactLink contactKey='LinkedIn' contact={contact.linkedin} IconComponent={Linkedin} />
+                            <ContactLink contactKey='Github' contact={contact.github} IconComponent={Github} />
+                            <ContactLink contactKey='Credly' contact={contact.credly} IconComponent={Credly} />
                         </div>
                     )}
                 </motion.div>
