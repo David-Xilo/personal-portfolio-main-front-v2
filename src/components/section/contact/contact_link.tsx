@@ -1,5 +1,6 @@
 import {motion} from 'framer-motion';
 
+// TODO instead of url display the icon
 const ContactLink = ({ contact, contactKey }: { contact: string | null; contactKey: string }) => {
 
     return (contact && contact !== '' && (
