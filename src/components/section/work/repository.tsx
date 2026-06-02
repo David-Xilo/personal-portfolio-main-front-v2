@@ -1,100 +1,128 @@
-import Github from "../../icons/github.tsx";
-import {useState} from "react";
-import ArrowRight from "../../icons/arrow_right.tsx";
-import ArrowLeft from "../../icons/arrow_left.tsx";
+import { useRef } from 'react';
+import Github from '../../icons/github.tsx';
+import type { RepositoryInfo } from '../../../api/types.ts';
 
+// Helper to resolve standard GitHub language colors
+const getLanguageDotClass = (lang: string) => {
+    const l = lang.toLowerCase();
+    if (l.includes('ts') || l.includes('typescript')) return 'bg-[#3178c6]';
+    if (l.includes('js') || l.includes('javascript')) return 'bg-[#f1e05a]';
+    if (l.includes('c++') || l.includes('cpp')) return 'bg-[#f34b7d]';
+    if (l.includes('rust')) return 'bg-[#e38c00]';
+    if (l.includes('go')) return 'bg-[#00add8]';
+    if (l.includes('java')) return 'bg-[#b07219]';
+    if (l.includes('py') || l.includes('python')) return 'bg-[#3572a5]';
+    return 'bg-dm-accent dark:bg-dm-accent-dark';
+};
 
-interface RepositoryInfo {
-    title: string;
-    description: string;
-    link_to_git: string;
+const getLanguageName = (title: string) => {
+    const t = title.toLowerCase();
+    if (t.includes('rs') || t.includes('rust')) return 'Rust';
+    if (t.includes('cpp') || t.includes('c++')) return 'C++';
+    if (t.includes('go')) return 'Go';
+    if (t.includes('ts') || t.includes('typescript')) return 'TypeScript';
+    return 'TypeScript'; // Default fallback matching the profile
+};
+
+interface RepositoryCardProps {
+    repository: RepositoryInfo;
 }
 
-const RepositoryCard = ({repository}: { repository: RepositoryInfo }) => {
-    return (
-        <div
-            className="flex-shrink-0 w-full p-4 bg-gray-200 dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700">
-            <h4 className="text-sm font-semibold text-gray-900 dark:text-gray-100 mb-2">
-                {repository.title}
-            </h4>
-            <p className="text-xs text-gray-600 dark:text-gray-400 mb-3 line-clamp-2">
-                {repository.description}
-            </p>
-
-            <a href={repository.link_to_git}
-               target="_blank"
-               rel="noopener noreferrer"
-               className="inline-flex items-center gap-1.5 text-xs text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-100 transition-colors"
-               onClick={(e) => e.stopPropagation()}
-            >
-                <Github className="w-3.5 h-3.5"/>
-                View Source
-            </a>
-        </div>
-    );
-};
-
-const RepositoryCarousel = ({ repositories }: { repositories: RepositoryInfo[] }) => {
-    const [currentIndex, setCurrentIndex] = useState(0);
-
-    if (repositories.length === 0) return null;
-
-    const goToPrevious = () => {
-        setCurrentIndex((prev) => (prev === 0 ? repositories.length - 1 : prev - 1));
-    };
-
-    const goToNext = () => {
-        setCurrentIndex((prev) => (prev === repositories.length - 1 ? 0 : prev + 1));
-    };
+export function RepositoryCard({ repository }: RepositoryCardProps) {
+    const language = getLanguageName(repository.title);
+    const dotClass = getLanguageDotClass(language);
 
     return (
-        <div className="mt-4 space-y-2">
-            <div className="flex items-center justify-between">
-                <span className="text-xs text-gray-500 dark:text-gray-400">
-                    {repositories.length} {repositories.length === 1 ? 'Repository' : 'Repositories'}
-                </span>
-                {repositories.length > 1 && (
-                    <div className="flex items-center gap-1">
-                        <button
-                            onClick={goToPrevious}
-                            className="p-1 rounded hover:bg-gray-200 dark:hover:bg-gray-800 transition-colors"
-                            aria-label="Previous repository"
-                        >
-                            <ArrowLeft
-                                className="w-4 h-4 text-gray-600 dark:text-gray-400"
-                            />
-                        </button>
-                        <span className="text-xs text-gray-500 dark:text-gray-400 min-w-[3rem] text-center">
-                            {currentIndex + 1} / {repositories.length}
-                        </span>
-                        <button
-                            onClick={goToNext}
-                            className="p-1 rounded hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
-                            aria-label="Next repository"
-                        >
-                            <ArrowRight
-                                className="w-4 h-4 text-gray-600 dark:text-gray-400"
-                            />
-                        </button>
-                    </div>
-                )}
-            </div>
-
-            <div className="relative overflow-hidden">
-                <div
-                    className="flex transition-transform duration-300 ease-in-out"
-                    style={{ transform: `translateX(-${currentIndex * 100}%)` }}
-                >
-                    {repositories.map((repository, idx) => (
-                        <div key={idx} className="w-full flex-shrink-0">
-                            <RepositoryCard repository={repository} />
-                        </div>
-                    ))}
+        <a
+            href={repository.link_to_git}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="snap-start flex-shrink-0 w-[280px] p-5 border border-dm-line dark:border-dm-line-dark rounded-xl bg-dm-bg-elev/30 dark:bg-dm-bg-elev-dark/30 hover:bg-dm-bg-elev/60 dark:hover:bg-dm-bg-elev-dark/60 hover:border-dm-accent dark:hover:border-dm-accent-dark transition-all duration-300 flex flex-col justify-between min-h-[160px] group/repo select-none cursor-pointer"
+        >
+            <div>
+                {/* Header */}
+                <div className="flex items-center gap-2.5 mb-2.5">
+                    <Github className="w-4 h-4 text-dm-text-faint dark:text-dm-text-faint-dark group-hover/repo:text-dm-accent dark:group-hover/repo:text-dm-accent-dark transition-colors duration-350" />
+                    <h4 className="font-mono text-[13.5px] font-semibold tracking-wide text-dm-text dark:text-dm-text-dark group-hover/repo:text-dm-accent dark:group-hover/repo:text-dm-accent-dark transition-colors duration-250">
+                        {repository.title}
+                    </h4>
                 </div>
+
+                {/* Description */}
+                <p className="text-[13px] leading-[1.5] text-dm-text-mut dark:text-dm-text-mut-dark line-clamp-2">
+                    {repository.description}
+                </p>
             </div>
+
+            {/* Footer */}
+            <div className="flex items-center justify-between text-[11px] font-mono text-dm-text-faint dark:text-dm-text-faint-dark mt-4">
+                <span className="flex items-center gap-1.5">
+                    <span className={`w-2 h-2 rounded-full ${dotClass}`} />
+                    {language}
+                </span>
+                <span className="opacity-0 group-hover/repo:opacity-100 transition-opacity duration-300">
+                    Source →
+                </span>
+            </div>
+        </a>
+    );
+}
+
+export function RepositoryCarousel({ repositories }: { repositories: RepositoryInfo[] }) {
+    const trackRef = useRef<HTMLDivElement>(null);
+
+    if (!repositories || repositories.length === 0) return null;
+
+    const scrollLeft = (e: React.MouseEvent) => {
+        e.stopPropagation();
+        trackRef.current?.scrollBy({ left: -320, behavior: 'smooth' });
+    };
+
+    const scrollRight = (e: React.MouseEvent) => {
+        e.stopPropagation();
+        trackRef.current?.scrollBy({ left: 320, behavior: 'smooth' });
+    };
+
+    return (
+        <div className="relative mt-6 group/carousel">
+            
+            {/* Previous Button Overlay */}
+            {repositories.length > 3 && (
+                <button
+                    onClick={scrollLeft}
+                    className="absolute left-[-16px] top-1/2 -translate-y-1/2 w-8 h-8 rounded-full border border-dm-line dark:border-dm-line-dark bg-dm-bg/80 dark:bg-dm-bg-dark/80 text-dm-text-mut dark:text-dm-text-mut-dark flex items-center justify-center cursor-pointer shadow-sm hover:text-dm-accent dark:hover:text-dm-accent-dark hover:border-dm-accent dark:hover:border-dm-accent-dark transition-all duration-300 z-10 opacity-0 group-hover/carousel:opacity-100 hidden md:flex select-none"
+                    aria-label="Scroll previous repositories"
+                >
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
+                    </svg>
+                </button>
+            )}
+
+            {/* Carousel Snap Track */}
+            <div
+                ref={trackRef}
+                className="flex gap-4 overflow-x-auto snap-x snap-mandatory scroll-smooth py-1"
+                style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+            >
+                {repositories.map((repo, idx) => (
+                    <RepositoryCard key={idx} repository={repo} />
+                ))}
+            </div>
+
+            {/* Next Button Overlay */}
+            {repositories.length > 3 && (
+                <button
+                    onClick={scrollRight}
+                    className="absolute right-[-16px] top-1/2 -translate-y-1/2 w-8 h-8 rounded-full border border-dm-line dark:border-dm-line-dark bg-dm-bg/80 dark:bg-dm-bg-dark/80 text-dm-text-mut dark:text-dm-text-mut-dark flex items-center justify-center cursor-pointer shadow-sm hover:text-dm-accent dark:hover:text-dm-accent-dark hover:border-dm-accent dark:hover:border-dm-accent-dark transition-all duration-300 z-10 opacity-0 group-hover/carousel:opacity-100 hidden md:flex select-none"
+                    aria-label="Scroll next repositories"
+                >
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                    </svg>
+                </button>
+            )}
         </div>
     );
-};
-
-export {RepositoryCard, RepositoryCarousel}
+}
 

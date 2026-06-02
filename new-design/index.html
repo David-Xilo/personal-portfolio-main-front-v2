@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>David Moura — Senior Software Engineer</title>
+<meta name="description" content="David Moura — Senior Software Engineer. Distributed, high-throughput, low-latency systems for finance and security. 10+ years across banks and CERN." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400;1,6..72,500&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<!-- ============ NAV ============ -->
+<nav class="nav" id="nav">
+  <a href="#top" class="brand"><span class="dot"></span>David&nbsp;Moura</a>
+  <div class="nav-links">
+    <a href="#experience"><span class="num">01</span>Experience</a>
+    <a href="#skills"><span class="num">02</span>Stack</a>
+    <a href="#work"><span class="num">03</span>Systems</a>
+    <a href="#projects"><span class="num">04</span>Projects</a>
+    <a href="#open-source"><span class="num">05</span>Open&nbsp;Source</a>
+    <a href="#contact"><span class="num">06</span>Contact</a>
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle color theme">
+      <svg class="ico-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+      <svg class="ico-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2v2.5M12 19.5V22M4.2 4.2l1.8 1.8M18 18l1.8 1.8M2 12h2.5M19.5 12H22M4.2 19.8 6 18M18 6l1.8-1.8"/></svg>
+    </button>
+  </div>
+</nav>
+
+<main id="top">
+
+<!-- ============ HERO ============ -->
+<header class="hero">
+  <div class="wrap">
+    <div class="hero-loc reveal">
+      <span class="eyebrow">Senior Software Engineer</span>
+      <span class="avail"><span class="dot"></span>Open to senior &amp; staff roles</span>
+    </div>
+
+    <h1 class="reveal" style="--d:80ms">
+      <span class="line">Engineering systems</span>
+      <span class="line">that are <em>fast</em>, distributed,</span>
+      <span class="line">and <em>never</em> drop a packet.</span>
+    </h1>
+
+    <p class="hero-sub reveal" style="--d:200ms">
+      I'm <strong>David Moura</strong> — a senior engineer with 10+ years building
+      <strong>high-throughput, low-latency</strong> infrastructure for trading floors,
+      payment rails, and physics at the <strong>LHC</strong>. I care about tail latency,
+      mechanical sympathy, and code that holds up when the market opens.
+    </p>
+
+    <div class="hero-cta reveal" style="--d:300ms">
+      <a href="#contact" class="btn btn-primary">
+        Get in touch
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+      <a href="#" class="btn btn-ghost" id="resumeBtn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0 4-4m-4 4-4-4M5 21h14"/></svg>
+        Download résumé
+      </a>
+    </div>
+
+    <!-- Live metrics motif -->
+    <div class="metrics reveal" style="--d:420ms" aria-hidden="true">
+      <div class="metric">
+        <div class="k">Experience</div>
+        <div class="v">10<small>+ yrs</small></div>
+      </div>
+      <div class="metric live">
+        <div class="k">p99 latency</div>
+        <div class="v" data-live="latency">0.92<small>ms</small></div>
+      </div>
+      <div class="metric live">
+        <div class="k">Peak throughput</div>
+        <div class="v"><span data-live="throughput">11.8</span><small>M msg/s</small></div>
+      </div>
+      <div class="metric">
+        <div class="k">Domains</div>
+        <div class="v">3<small>fin · sec · hpc</small></div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ============ EXPERIENCE ============ -->
+<section class="section" id="experience">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <h2>Selected <em>experience</em></h2>
+      <span class="section-idx">01 — career</span>
+    </div>
+
+    <div class="xp-item reveal">
+      <div class="xp-period">2021 — Present</div>
+      <div>
+        <div class="xp-role">Senior Software Engineer
+          <span class="xp-org">Tier-1 Investment Bank · Electronic Trading</span>
+        </div>
+        <p class="xp-desc">Own the low-latency execution path for a global equities desk — order gateways, smart routing, and a lock-free matching core. Cut wire-to-wire p99 by 38% and absorbed a 4× volume increase with no added hardware.</p>
+        <div class="xp-tags"><span class="tag">C++20</span><span class="tag">Kernel bypass</span><span class="tag">FIX</span><span class="tag">Lock-free</span></div>
+      </div>
+      <div class="xp-place">London, UK</div>
+    </div>
+
+    <div class="xp-item reveal">
+      <div class="xp-period">2017 — 2021</div>
+      <div>
+        <div class="xp-role">Staff Engineer
+          <span class="xp-org">Global Payments &amp; Markets Infrastructure</span>
+        </div>
+        <p class="xp-desc">Led the rebuild of a market-data distribution platform serving 12M messages/sec to 2,000+ downstream consumers. Designed the consensus layer for cross-region failover with sub-second RTO.</p>
+        <div class="xp-tags"><span class="tag">Go</span><span class="tag">Kafka</span><span class="tag">Raft</span><span class="tag">gRPC</span></div>
+      </div>
+      <div class="xp-place">Zurich, CH</div>
+    </div>
+
+    <div class="xp-item reveal">
+      <div class="xp-period">2014 — 2017</div>
+      <div>
+        <div class="xp-role">Software Engineer
+          <span class="xp-org">Fintech · Real-Time Risk</span>
+        </div>
+        <p class="xp-desc">Built a distributed real-time risk engine evaluating exposure across millions of positions on a streaming pipeline. Introduced eBPF-based observability that surfaced a class of GC stalls costing real money.</p>
+        <div class="xp-tags"><span class="tag">Java</span><span class="tag">Cassandra</span><span class="tag">eBPF</span><span class="tag">Streaming</span></div>
+      </div>
+      <div class="xp-place">Amsterdam, NL</div>
+    </div>
+
+    <div class="xp-item reveal">
+      <div class="xp-period">2012 — 2014</div>
+      <div>
+        <div class="xp-role">Software Engineer
+          <span class="xp-org">CERN · Data Acquisition</span>
+        </div>
+        <p class="xp-desc">Worked on data-acquisition software for an LHC experiment, ingesting detector readout at terabit scale. Optimized the readout path and built tooling the collaboration still runs during beam.</p>
+        <div class="xp-tags"><span class="tag">C++</span><span class="tag">DAQ</span><span class="tag">NUMA</span><span class="tag">High-throughput</span></div>
+      </div>
+      <div class="xp-place">Geneva, CH</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SKILLS ============ -->
+<section class="section" id="skills">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <h2>The <em>stack</em></h2>
+      <span class="section-idx">02 — capabilities</span>
+    </div>
+
+    <div class="skills-grid reveal">
+      <div class="skill-cell">
+        <h3><span class="i">▹</span>Languages</h3>
+        <div class="skill-list"><span>C++20</span><span>Rust</span><span>Go</span><span>Java</span><span>Python</span></div>
+      </div>
+      <div class="skill-cell">
+        <h3><span class="i">▹</span>Distributed Systems</h3>
+        <div class="skill-list"><span>Kafka</span><span>gRPC</span><span>Raft / Consensus</span><span>Cassandra</span><span>Redis</span><span>Kubernetes</span></div>
+      </div>
+      <div class="skill-cell">
+        <h3><span class="i">▹</span>Low Latency</h3>
+        <div class="skill-list"><span>Lock-free</span><span>DPDK / kernel-bypass</span><span>NUMA tuning</span><span>Mechanical sympathy</span><span>SIMD</span></div>
+      </div>
+      <div class="skill-cell">
+        <h3><span class="i">▹</span>Finance</h3>
+        <div class="skill-list"><span>FIX protocol</span><span>Market data</span><span>Order matching</span><span>Risk engines</span></div>
+      </div>
+      <div class="skill-cell">
+        <h3><span class="i">▹</span>Security</h3>
+        <div class="skill-list"><span>Threat modeling</span><span>mTLS / PKI</span><span>Zero-trust</span><span>Fuzzing</span><span>Secure enclaves</span></div>
+      </div>
+      <div class="skill-cell">
+        <h3><span class="i">▹</span>Observability</h3>
+        <div class="skill-list"><span>Prometheus</span><span>OpenTelemetry</span><span>eBPF</span><span>Flame graphs</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SYSTEMS / PROJECTS ============ -->
+<section class="section" id="work">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <h2>Systems <em>built</em></h2>
+      <span class="section-idx">03 — selected work</span>
+    </div>
+
+    <div class="projects">
+      <article class="project reveal">
+        <div class="project-top">
+          <span class="project-kind">Matching Engine</span>
+          <span class="project-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
+        </div>
+        <h3>Lock-free order matching core</h3>
+        <p>A single-threaded, cache-resident matching engine with deterministic replay and zero-allocation hot path. Drives a continuous limit-order book without a GC pause in sight.</p>
+        <div class="project-stats">
+          <div class="st"><div class="n">820<small>ns</small></div><div class="l">p99 match</div></div>
+          <div class="st"><div class="n">6.4M</div><div class="l">orders / s</div></div>
+          <div class="st"><div class="n">0</div><div class="l">hot-path allocs</div></div>
+        </div>
+      </article>
+
+      <article class="project reveal" style="--d:90ms">
+        <div class="project-top">
+          <span class="project-kind">Market Data</span>
+          <span class="project-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
+        </div>
+        <h3>Feed normalization gateway</h3>
+        <p>Kernel-bypass ingest that normalizes a dozen exchange protocols into one wire format, fanning out to thousands of consumers with bounded jitter and lossless replay.</p>
+        <div class="project-stats">
+          <div class="st"><div class="n">11.8M</div><div class="l">msg / s</div></div>
+          <div class="st"><div class="n">1.2µs</div><div class="l">added latency</div></div>
+          <div class="st"><div class="n">12</div><div class="l">protocols</div></div>
+        </div>
+      </article>
+
+      <article class="project reveal" style="--d:120ms">
+        <div class="project-top">
+          <span class="project-kind">Risk</span>
+          <span class="project-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
+        </div>
+        <h3>Distributed real-time risk</h3>
+        <p>A streaming risk fabric recomputing exposure across millions of positions on every tick, with cross-region consensus and sub-second failover.</p>
+        <div class="project-stats">
+          <div class="st"><div class="n">3M+</div><div class="l">positions</div></div>
+          <div class="st"><div class="n">&lt;800ms</div><div class="l">RTO</div></div>
+          <div class="st"><div class="n">99.99%</div><div class="l">availability</div></div>
+        </div>
+      </article>
+
+      <article class="project reveal" style="--d:150ms">
+        <div class="project-top">
+          <span class="project-kind">Security</span>
+          <span class="project-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
+        </div>
+        <h3>Zero-trust service mesh</h3>
+        <p>mTLS everywhere with short-lived certs, identity-aware routing, and a fuzzing harness wired into CI that has caught protocol-parser bugs before they shipped.</p>
+        <div class="project-stats">
+          <div class="st"><div class="n">100%</div><div class="l">mTLS coverage</div></div>
+          <div class="st"><div class="n">5m</div><div class="l">cert TTL</div></div>
+          <div class="st"><div class="n">40+</div><div class="l">CVEs fuzzed out</div></div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROJECTS ============ -->
+<section class="section" id="projects">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <h2>Shipped <em>projects</em></h2>
+      <span class="section-idx">04 — products</span>
+    </div>
+
+    <div class="proj-list">
+
+      <!-- Project 1 -->
+      <article class="proj reveal">
+        <div class="proj-main">
+          <div class="proj-head">
+            <div>
+              <span class="proj-kind">Trading · Desktop</span>
+              <h3>Helios Terminal</h3>
+            </div>
+            <a href="#" class="proj-link" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10 14 21 3M15 3h6v6M21 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5"/></svg>
+              Visit site
+            </a>
+          </div>
+          <p class="proj-desc">A low-latency trading terminal: streaming order book, one-click execution, and a normalized market-data feed rendered at 120fps. Used daily by a desk pushing nine-figure volume.</p>
+        </div>
+        <div class="proj-repos">
+          <div class="proj-repos-bar">
+            <span class="proj-repos-label">Repositories <span class="cnt">5</span></span>
+            <div class="carousel-nav">
+              <button class="cnav prev" aria-label="Scroll left"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18 9 12l6-6"/></svg></button>
+              <button class="cnav next" aria-label="Scroll right"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></button>
+            </div>
+          </div>
+          <div class="carousel">
+            <div class="carousel-track">
+              <a class="repo-chip" href="#"><span class="rc-top"><svg class="gh" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.7.5.5 5.7.5 12a11.5 11.5 0 0 0 7.9 10.9c.6.1.8-.2.8-.5v-2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.7-1.3-1.7-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.4-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.4 11.4 0 0 1 6 0C17.3 4.7 18.3 5 18.3 5c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .3.2.6.8.5A11.5 11.5 0 0 0 23.5 12C23.5 5.7 18.3.5 12 .5z"/></svg>helios-core</span><span class="rc-desc">Matching &amp; book engine</span><span class="rc-lang"><span class="sw" style="background:#f34b7d"></span>C++</span></a>
+              <a class="repo-chip" href="#"><span class="rc-top"><svg class="gh" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.7.5.5 5.7.5 12a11.5 11.5 0 0 0 7.9 10.9c.6.1.8-.2.8-.5v-2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.7-1.3-1.7-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.4-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.4 11.4 0 0 1 6 0C17.3 4.7 18.3 5 18.3 5c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .3.2.6.8.5A11.5 11.5 0 0 0 23.5 12C23.5 5.7 18.3.5 12 .5z"/></svg>helios-md-gateway</span><span class="rc-desc">Feed normalization</span><span class="rc-lang"><span class="sw" style="background:#dea584"></span>Rust</span></a>
+              <a class="repo-chip" href="#"><span class="rc-top"><svg class="gh" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.7.5.5 5.7.5 12a11.5 11.5 0 0 0 7.9 10.9c.6.1.8-.2.8-.5v-2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.7-1.3-1.7-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.4-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.4 11.4 0 0 1 6 0C17.3 4.7 18.3 5 18.3 5c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .3.2.6.8.5A11.5 11.5 0 0 0 23.5 12C23.5 5.7 18.3.5 12 .5z"/></svg>helios-ui</span><span class="rc-desc">GPU-rendered front end</span><span class="rc-lang"><span class="sw" style="background:#3178c6"></span>TypeScript</span></a>
+              <a class="repo-chip" href="#"><span class="rc-top"><svg class="gh" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.7.5.5 5.7.5 12a11.5 11.5 0 0 0 7.9 10.9c.6.1.8-.2.8-.5v-2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.7-1.3-1.7-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.4-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.4 11.4 0 0 1 6 0C17.3 4.7 18.3 5 18.3 5c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .3.2.6.8.5A11.5 11.5 0 0 0 23.5 12C23.5 5.7 18.3.5 12 .5z"/></svg>fixparse</span><span class="rc-desc">Allocation-free FIX</span><span class="rc-lang"><span class="sw" style="background:#00add8"></span>Go</span></a>
+              <a class="repo-chip" href="#"><span class="rc-top"><svg class="gh" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.7.5.5 5.7.5 12a11.5 11.5 0 0 0 7.9 10.9c.6.1.8-.2.8-.5v-2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.7-1.3-1.7-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.4-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.4 11.4 0 0 1 6 0C17.3 4.7 18.3 5 18.3 5c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .3.2.6.8.5A11.5 11.5 0 0 0 23.5 12C23.5 5.7 18.3.5 12 .5z"/></svg>spsc-ring</span><span class="rc-desc">Wait-free queue</span><span class="rc-lang"><span class="sw" style="background:#f34b7d"></span>C++</span></a>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Project 2 -->
+      <article class="proj reveal" style="--d:90ms">
+        <div class="proj-main">
+          <div class="proj-head">
+            <div>
+              <span class="proj-kind">Security · SaaS</span>
+              <h3>Sentinel</h3>
+            </div>
+            <a href="#" class="proj-link" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10 14 21 3M15 3h6v6M21 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5"/></svg>
+              Visit site
+            </a>
+          </div>
+          <p class="proj-desc">Real-time fraud &amp; anomaly detection over a streaming transaction firehose. Sub-second scoring, explainable rules, and a console SOC teams actually want to use.</p>
+        </div>
+        <div class="proj-repos">
+          <div class="proj-repos-bar">
+            <span class="proj-repos-label">Repositories <span class="cnt">3</span></span>
+            <div class="carousel-nav">
+              <button class="cnav prev" aria-label="Scroll left"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18 9 12l6-6"/></svg></button>
+              <button class="cnav next" aria-label="Scroll right"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></button>
+            </div>
+          </div>
+          <div class="carousel">
+            <div class="carousel-track">
+              <a class="repo-chip" href="#"><span class="rc-top"><svg class="gh" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.7.5.5 5.7.5 12a11.5 11.5 0 0 0 7.9 10.9c.6.1.8-.2.8-.5v-2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.7-1.3-1.7-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.4-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.4 11.4 0 0 1 6 0C17.3 4.7 18.3 5 18.3 5c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .3.2.6.8.5A11.5 11.5 0 0 0 23.5 12C23.5 5.7 18.3.5 12 .5z"/></svg>sentinel-stream</span><span class="rc-desc">Scoring pipeline</span><span class="rc-lang"><span class="sw" style="background:#00add8"></span>Go</span></a>
+              <a class="repo-chip" href="#"><span class="rc-top"><svg class="gh" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.7.5.5 5.7.5 12a11.5 11.5 0 0 0 7.9 10.9c.6.1.8-.2.8-.5v-2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.7-1.3-1.7-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.4-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.4 11.4 0 0 1 6 0C17.3 4.7 18.3 5 18.3 5c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .3.2.6.8.5A11.5 11.5 0 0 0 23.5 12C23.5 5.7 18.3.5 12 .5z"/></svg>sentinel-rules</span><span class="rc-desc">Explainable rule engine</span><span class="rc-lang"><span class="sw" style="background:#dea584"></span>Rust</span></a>
+              <a class="repo-chip" href="#"><span class="rc-top"><svg class="gh" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.7.5.5 5.7.5 12a11.5 11.5 0 0 0 7.9 10.9c.6.1.8-.2.8-.5v-2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.7-1.3-1.7-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.4-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.4 11.4 0 0 1 6 0C17.3 4.7 18.3 5 18.3 5c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .3.2.6.8.5A11.5 11.5 0 0 0 23.5 12C23.5 5.7 18.3.5 12 .5z"/></svg>sentinel-console</span><span class="rc-desc">SOC dashboard</span><span class="rc-lang"><span class="sw" style="background:#3178c6"></span>TypeScript</span></a>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Project 3 -->
+      <article class="proj reveal" style="--d:120ms">
+        <div class="proj-main">
+          <div class="proj-head">
+            <div>
+              <span class="proj-kind">Payments · Platform</span>
+              <h3>Ledgerline</h3>
+            </div>
+            <a href="#" class="proj-link" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10 14 21 3M15 3h6v6M21 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5"/></svg>
+              Visit site
+            </a>
+          </div>
+          <p class="proj-desc">A payments reconciliation platform that ingests settlement files from dozens of banks and rails, matches them automatically, and flags breaks before finance ever sees them.</p>
+        </div>
+        <div class="proj-repos">
+          <div class="proj-repos-bar">
+            <span class="proj-repos-label">Repositories <span class="cnt">4</span></span>
+            <div class="carousel-nav">
+              <button class="cnav prev" aria-label="Scroll left"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18 9 12l6-6"/></svg></button>
+              <button class="cnav next" aria-label="Scroll right"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></button>
+            </div>
+          </div>
+          <div class="carousel">
+            <div class="carousel-track">
+              <a class="repo-chip" href="#"><span class="rc-top"><svg class="gh" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.7.5.5 5.7.5 12a11.5 11.5 0 0 0 7.9 10.9c.6.1.8-.2.8-.5v-2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.7-1.3-1.7-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.4-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.4 11.4 0 0 1 6 0C17.3 4.7 18.3 5 18.3 5c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .3.2.6.8.5A11.5 11.5 0 0 0 23.5 12C23.5 5.7 18.3.5 12 .5z"/></svg>ledgerline-api</span><span class="rc-desc">Core services</span><span class="rc-lang"><span class="sw" style="background:#00add8"></span>Go</span></a>
+              <a class="repo-chip" href="#"><span class="rc-top"><svg class="gh" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.7.5.5 5.7.5 12a11.5 11.5 0 0 0 7.9 10.9c.6.1.8-.2.8-.5v-2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.7-1.3-1.7-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.4-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.4 11.4 0 0 1 6 0C17.3 4.7 18.3 5 18.3 5c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .3.2.6.8.5A11.5 11.5 0 0 0 23.5 12C23.5 5.7 18.3.5 12 .5z"/></svg>ledgerline-recon</span><span class="rc-desc">Matching core</span><span class="rc-lang"><span class="sw" style="background:#b07219"></span>Java</span></a>
+              <a class="repo-chip" href="#"><span class="rc-top"><svg class="gh" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.7.5.5 5.7.5 12a11.5 11.5 0 0 0 7.9 10.9c.6.1.8-.2.8-.5v-2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.7-1.3-1.7-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.4-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.4 11.4 0 0 1 6 0C17.3 4.7 18.3 5 18.3 5c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .3.2.6.8.5A11.5 11.5 0 0 0 23.5 12C23.5 5.7 18.3.5 12 .5z"/></svg>ledgerline-web</span><span class="rc-desc">Ops console</span><span class="rc-lang"><span class="sw" style="background:#3178c6"></span>TypeScript</span></a>
+              <a class="repo-chip" href="#"><span class="rc-top"><svg class="gh" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.7.5.5 5.7.5 12a11.5 11.5 0 0 0 7.9 10.9c.6.1.8-.2.8-.5v-2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.7-1.3-1.7-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.4-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.4 11.4 0 0 1 6 0C17.3 4.7 18.3 5 18.3 5c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .3.2.6.8.5A11.5 11.5 0 0 0 23.5 12C23.5 5.7 18.3.5 12 .5z"/></svg>ledgerline-connectors</span><span class="rc-desc">Bank file adapters</span><span class="rc-lang"><span class="sw" style="background:#3572A5"></span>Python</span></a>
+            </div>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ OPEN SOURCE ============ -->
+<section class="section" id="open-source">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <h2>Open <em>source</em></h2>
+      <span class="section-idx">05 — github</span>
+    </div>
+
+    <div class="repos">
+      <a class="repo reveal" href="#">
+        <div class="repo-name"><svg class="gh" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.7.5.5 5.7.5 12a11.5 11.5 0 0 0 7.9 10.9c.6.1.8-.2.8-.5v-2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.7-1.3-1.7-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.4-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.4 11.4 0 0 1 6 0C17.3 4.7 18.3 5 18.3 5c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .3.2.6.8.5A11.5 11.5 0 0 0 23.5 12C23.5 5.7 18.3.5 12 .5z"/></svg>limitorder-rs</div>
+        <p>A zero-allocation limit-order book in Rust with deterministic replay.</p>
+        <div class="repo-meta">
+          <span class="lang"><span class="sw" style="background:#dea584"></span>Rust</span>
+          <span class="star"><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 17.3 6.2 3.7-1.6-7 5.4-4.7-7.1-.6L12 2 9.1 8.7 2 9.3l5.4 4.7-1.6 7z"/></svg>1.4k</span>
+        </div>
+      </a>
+
+      <a class="repo reveal" href="#" style="--d:90ms">
+        <div class="repo-name"><svg class="gh" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.7.5.5 5.7.5 12a11.5 11.5 0 0 0 7.9 10.9c.6.1.8-.2.8-.5v-2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.7-1.3-1.7-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.4-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.4 11.4 0 0 1 6 0C17.3 4.7 18.3 5 18.3 5c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .3.2.6.8.5A11.5 11.5 0 0 0 23.5 12C23.5 5.7 18.3.5 12 .5z"/></svg>spsc-ring</div>
+        <p>Header-only C++ wait-free SPSC queue tuned for cache lines &amp; NUMA.</p>
+        <div class="repo-meta">
+          <span class="lang"><span class="sw" style="background:#f34b7d"></span>C++</span>
+          <span class="star"><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 17.3 6.2 3.7-1.6-7 5.4-4.7-7.1-.6L12 2 9.1 8.7 2 9.3l5.4 4.7-1.6 7z"/></svg>980</span>
+        </div>
+      </a>
+
+      <a class="repo reveal" href="#" style="--d:120ms">
+        <div class="repo-name"><svg class="gh" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.7.5.5 5.7.5 12a11.5 11.5 0 0 0 7.9 10.9c.6.1.8-.2.8-.5v-2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.7-1.3-1.7-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.4-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.4 11.4 0 0 1 6 0C17.3 4.7 18.3 5 18.3 5c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .3.2.6.8.5A11.5 11.5 0 0 0 23.5 12C23.5 5.7 18.3.5 12 .5z"/></svg>fixparse</div>
+        <p>Allocation-free FIX message parser with a fuzz-tested grammar.</p>
+        <div class="repo-meta">
+          <span class="lang"><span class="sw" style="background:#00add8"></span>Go</span>
+          <span class="star"><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 17.3 6.2 3.7-1.6-7 5.4-4.7-7.1-.6L12 2 9.1 8.7 2 9.3l5.4 4.7-1.6 7z"/></svg>2.1k</span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section class="contact" id="contact">
+  <div class="wrap">
+    <span class="eyebrow reveal">06 — Contact</span>
+    <h2 class="reveal" style="--d:80ms">Let's build something<br/>that <em>doesn't</em> fall over.</h2>
+    <p class="lead reveal" style="--d:160ms">Hiring for distributed systems, low-latency, or platform security? I'd love to talk. Fastest way to reach me is email.</p>
+    <div class="contact-links reveal" style="--d:240ms">
+      <a href="mailto:david.moura@example.com" class="btn btn-primary">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+        david.moura@example.com
+      </a>
+      <a href="#" class="btn btn-ghost">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.84-2.05 3.78-2.05 4 0 4.74 2.6 4.74 6V21h-4v-5.3c0-1.27-.02-2.9-1.77-2.9-1.77 0-2.04 1.38-2.04 2.8V21H9z"/></svg>
+        LinkedIn
+      </a>
+      <a href="#" class="btn btn-ghost">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.7.5.5 5.7.5 12a11.5 11.5 0 0 0 7.9 10.9c.6.1.8-.2.8-.5v-2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.7-1.3-1.7-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.4-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.4 11.4 0 0 1 6 0C17.3 4.7 18.3 5 18.3 5c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .3.2.6.8.5A11.5 11.5 0 0 0 23.5 12C23.5 5.7 18.3.5 12 .5z"/></svg>
+        GitHub
+      </a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <span>© 2026 David Moura</span>
+  <span class="right">
+    <a href="#top">Back to top ↑</a>
+    <span>Built for speed · Geneva / London</span>
+  </span>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>

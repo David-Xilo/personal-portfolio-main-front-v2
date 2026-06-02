@@ -1,84 +1,82 @@
-import {motion} from 'framer-motion';
-import ExternalLink from "../../icons/external_link.tsx";
-import {useApiGet} from "../../../api/use_api_get.tsx";
-import type {Project} from "../../../api/types.ts";
-import {RepositoryCarousel} from "./repository.tsx";
-import ErrorDisplay from "../../general/error.tsx";
-import Loader from "../../general/loader.tsx";
+import { useApiGet } from '../../../api/use_api_get.tsx';
+import type { Project } from '../../../api/types.ts';
+import { RepositoryCarousel } from './repository.tsx';
+import ErrorDisplay from '../../general/error.tsx';
+import Loader from '../../general/loader.tsx';
 
-interface ProjectsProps {
-    projects?: Project[];
-    category?: string;
-}
-
-
-export default function Projects({}: ProjectsProps) {
-    const projectsPath = '/projects'
-    const {status, message: projects, error} = useApiGet<Project[]>(projectsPath, [])
+export default function Projects() {
+    const projectsPath = '/projects';
+    const { status, message: projects, error } = useApiGet<Project[]>(projectsPath, []);
 
     return (
-        <>
-            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900 dark:text-gray-100">
-                Work
-            </h2>
-            <p className="text-lg text-gray-600 dark:text-gray-400 mb-16 max-w-2xl">
-                A collection of projects spanning my interests and expertise.
-            </p>
+        <section id="projects" className="py-[100px] border-t border-dm-line dark:border-dm-line-dark scroll-mt-16">
+            <div className="max-w-[1180px] mx-auto px-6 md:px-16">
+                
+                {/* Section Header */}
+                <div className="flex items-baseline gap-4 mb-16">
+                    <span className="font-mono text-xs tracking-wider text-dm-accent dark:text-dm-accent-dark font-medium">04</span>
+                    <h2 className="font-serif text-3xl font-normal leading-none tracking-[-0.015em] text-dm-text dark:text-dm-text-dark">
+                        Shipped Projects
+                    </h2>
+                </div>
 
-            {status === 'error' && (
-                <ErrorDisplay error={error} />
-            )}
-            {status === 'loading' && (
-                <Loader />
-            )}
-            {status === 'success' && (<div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {projects?.map((project, index) => (
-                    <motion.article
-                        key={project.title}
-                        initial={{opacity: 0, y: 20}}
-                        whileInView={{opacity: 1, y: 0}}
-                        viewport={{once: true}}
-                        transition={{duration: 0.5, delay: index * 0.1}}
-                        className="bg-gray-100 dark:bg-gray-900 rounded-lg overflow-hidden hover:shadow-lg transition-shadow"
-                    >
-                        <div className="p-6">
-                            <div className="flex flex-col sm:flex-row sm:items-center gap-4 mb-3 ">
-                                {project.image_url && (
-                                    <img
-                                        src={project.image_url}
-                                        alt={project.title}
-                                        className="w-20 h-20 sm:w-24 sm:h-24 rounded-lg object-cover flex-shrink-0"
-                                    />
-                                )}
-                                <div className="flex-1 flex items-center justify-between gap-2">
-                                    <h3 className="text-2xl font-bold text-gray-900 dark:text-gray-100">
-                                        {project.title}
-                                    </h3>
-                                    {project.link_to_project && (
-                                        <a href={project.link_to_project}
-                                           target="_blank"
-                                           rel="noopener noreferrer"
-                                           className="p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded transition-colors flex-shrink-0"
-                                           aria-label="View live project"
-                                        >
-                                            <ExternalLink className="w-4 h-4 text-gray-600 dark:text-gray-400"/>
-                                        </a>
-                                    )}
+                {/* API Status Handlers */}
+                {status === 'loading' && (
+                    <div className="py-12 flex justify-center">
+                        <Loader />
+                    </div>
+                )}
+                {status === 'error' && (
+                    <div className="py-8">
+                        <ErrorDisplay error={error} />
+                    </div>
+                )}
+
+                {/* Projects List */}
+                {status === 'success' && projects && (
+                    <div className="flex flex-col gap-16">
+                        {projects.map((project, idx) => (
+                            <div key={idx} className="group/proj flex flex-col">
+                                
+                                {/* Project Head */}
+                                <div className="flex flex-col md:flex-row md:items-baseline justify-between border-b border-dm-line/45 dark:border-dm-line-dark/45 pb-3.5 gap-2">
+                                    <div className="flex items-center gap-3">
+                                        <h3 className="font-serif text-[22px] md:text-[25px] font-normal tracking-[-0.015em] text-dm-text dark:text-dm-text-dark">
+                                            {project.title}
+                                        </h3>
+                                        {project.link_to_project && (
+                                            <a 
+                                                href={project.link_to_project}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="text-dm-text-faint dark:text-dm-text-faint-dark hover:text-dm-accent dark:hover:text-dm-accent-dark transition-colors duration-250"
+                                                aria-label={`View live ${project.title}`}
+                                            >
+                                                <svg className="w-[17px] h-[17px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                                                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14 21 3" />
+                                                </svg>
+                                            </a>
+                                        )}
+                                    </div>
+                                    <div className="font-mono text-[12px] tracking-wider text-dm-text-faint dark:text-dm-text-faint-dark uppercase">
+                                        {project.repositories && project.repositories.length > 0 ? 'Platform · Production' : 'Research · Archive'}
+                                    </div>
                                 </div>
+
+                                {/* Description */}
+                                <p className="mt-5 text-[15px] md:text-[15.5px] leading-[1.6] text-dm-text-mut dark:text-dm-text-mut-dark max-w-[840px]">
+                                    {project.description}
+                                </p>
+
+                                {/* Repositories Snap Carousel */}
+                                {project.repositories && project.repositories.length > 0 && (
+                                    <RepositoryCarousel repositories={project.repositories} />
+                                )}
                             </div>
-
-                            <p className="text-gray-600 dark:text-gray-400 mb-4 text-sm leading-relaxed">
-                                {project.description}
-                            </p>
-
-                            {project.repositories && project.repositories.length > 0 && (
-                                <RepositoryCarousel repositories={project.repositories}/>
-                            )}
-                        </div>
-                    </motion.article>
-                ))}
+                        ))}
+                    </div>
+                )}
             </div>
-            )}
-        </>
+        </section>
     );
 }

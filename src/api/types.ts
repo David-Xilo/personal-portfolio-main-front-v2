@@ -42,4 +42,18 @@ interface Project {
     image_url: string
 }
 
-export type {Project, RepositoryInfo, ContactInfo}
+interface ExperienceItem {
+    period: string
+    role: string
+    org: string
+    desc: string
+    tags: string[]
+    place: string
+}
+
+interface SkillCategory {
+    category: string
+    skills: string[]
+}
+
+export type {Project, RepositoryInfo, ContactInfo, ExperienceItem, SkillCategory}

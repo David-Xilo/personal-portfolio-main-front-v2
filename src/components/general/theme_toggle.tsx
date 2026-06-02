@@ -1,17 +1,16 @@
 import { useState, useEffect } from 'react';
-import { Sun } from '../icons/sun.tsx';
-import { Moon } from '../icons/moon.tsx';
 
 export default function ThemeToggle() {
-    const [theme, setTheme] = useState<'light' | 'dark'>('light');
+    const [theme, setTheme] = useState<'light' | 'dark'>('dark');
 
     useEffect(() => {
-        const savedTheme = localStorage.getItem('theme');
+        const savedTheme = localStorage.getItem('dm-theme');
         const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
         const initialTheme = (savedTheme as 'light' | 'dark') || (prefersDark ? 'dark' : 'light');
 
         setTheme(initialTheme);
         document.documentElement.classList.toggle('dark', initialTheme === 'dark');
+        document.documentElement.setAttribute('data-theme', initialTheme);
     }, []);
 
     const toggleTheme = () => {
@@ -19,20 +18,26 @@ export default function ThemeToggle() {
         setTheme(newTheme);
 
         document.documentElement.classList.toggle('dark', newTheme === 'dark');
-        localStorage.setItem('theme', newTheme);
+        document.documentElement.setAttribute('data-theme', newTheme);
+        localStorage.setItem('dm-theme', newTheme);
     };
 
     return (
         <button
             onClick={toggleTheme}
-            className="p-2 rounded-lg border border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors"
-            aria-label="Toggle theme"
+            className="w-[34px] h-[34px] border border-dm-line dark:border-dm-line-dark rounded-full bg-transparent text-dm-text-mut dark:text-dm-text-mut-dark cursor-pointer flex items-center justify-center transition-all duration-300 hover:text-dm-text dark:hover:text-dm-text-dark hover:border-dm-accent dark:hover:border-dm-accent-dark active:scale-95"
+            aria-label="Toggle color theme"
         >
-            {theme === 'dark' ? (
-                <Sun className="w-5 h-5 text-gray-700 dark:text-gray-300" />
+            {theme === 'light' ? (
+                <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/>
+                </svg>
             ) : (
-                <Moon className="w-5 h-5 text-gray-700 dark:text-gray-300" />
+                <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                    <circle cx="12" cy="12" r="4.2"/>
+                    <path d="M12 2v2.5M12 19.5V22M4.2 4.2l1.8 1.8M18 18l1.8 1.8M2 12h2.5M19.5 12H22M4.2 19.8 6 18M18 6l1.8-1.8"/>
+                </svg>
             )}
         </button>
     );
-};
+}
