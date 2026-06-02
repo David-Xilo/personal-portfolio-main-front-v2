@@ -1,0 +1,20 @@
+{
+  "message": [
+    {
+      "period": "2018 — Present",
+      "role": "Senior Software Engineer",
+      "org": "Market Infrastructure Core",
+      "desc": "Focus on system integrity, risk control, and reliable data flows in market infrastructure. Solve hard problems and turn them into stable, secure solutions.",
+      "tags": ["System Integrity", "Risk Control", "Market Infrastructure"],
+      "place": "Remote"
+    },
+    {
+      "period": "2014 — 2018",
+      "role": "Software Engineer",
+      "org": "High-Throughput Systems Desk",
+      "desc": "Experience designing low-latency, high-throughput systems, building secure backend services, and driving real-time data pipelines.",
+      "tags": ["Low-Latency", "Backend Services", "Data Pipelines"],
+      "place": "Remote"
+    }
+  ]
+}

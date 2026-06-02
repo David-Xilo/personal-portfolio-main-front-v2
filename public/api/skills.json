@@ -1,0 +1,20 @@
+{
+  "message": [
+    {
+      "category": "Core Architecture",
+      "skills": ["System Architecture & Design", "Low-Latency, High-Throughput Systems"]
+    },
+    {
+      "category": "Systems Security",
+      "skills": ["Secure Backend Services", "Risk-Aware Engineering"]
+    },
+    {
+      "category": "Data & Infrastructure",
+      "skills": ["Real-Time Data Pipelines", "Finance-Grade Infrastructure", "CI/CD & DevOps Practices"]
+    },
+    {
+      "category": "Integrations",
+      "skills": ["API & Integration Design"]
+    }
+  ]
+}
