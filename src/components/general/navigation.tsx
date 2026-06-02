@@ -31,24 +31,20 @@ export default function Navigation() {
             
             <div className="flex items-center gap-7">
                 <div className="hidden md:flex items-center gap-7">
-                    <a href="#about" className="font-mono text-[12.5px] tracking-wide text-dm-text-mut dark:text-dm-text-mut-dark hover:text-dm-text dark:hover:text-dm-text-dark transition-colors relative group py-1">
-                        <span className="text-dm-text-faint dark:text-dm-text-faint-dark mr-1">01</span>About
-                        <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-dm-accent dark:bg-dm-accent-dark transition-all duration-250 ease-out group-hover:w-full"></span>
-                    </a>
                     <a href="#experience" className="font-mono text-[12.5px] tracking-wide text-dm-text-mut dark:text-dm-text-mut-dark hover:text-dm-text dark:hover:text-dm-text-dark transition-colors relative group py-1">
-                        <span className="text-dm-text-faint dark:text-dm-text-faint-dark mr-1">02</span>Experience
+                        <span className="text-dm-text-faint dark:text-dm-text-faint-dark mr-1">01</span>Experience
                         <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-dm-accent dark:bg-dm-accent-dark transition-all duration-250 ease-out group-hover:w-full"></span>
                     </a>
                     <a href="#skills" className="font-mono text-[12.5px] tracking-wide text-dm-text-mut dark:text-dm-text-mut-dark hover:text-dm-text dark:hover:text-dm-text-dark transition-colors relative group py-1">
-                        <span className="text-dm-text-faint dark:text-dm-text-faint-dark mr-1">03</span>Stack
+                        <span className="text-dm-text-faint dark:text-dm-text-faint-dark mr-1">02</span>Stack
                         <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-dm-accent dark:bg-dm-accent-dark transition-all duration-250 ease-out group-hover:w-full"></span>
                     </a>
                     <a href="#projects" className="font-mono text-[12.5px] tracking-wide text-dm-text-mut dark:text-dm-text-mut-dark hover:text-dm-text dark:hover:text-dm-text-dark transition-colors relative group py-1">
-                        <span className="text-dm-text-faint dark:text-dm-text-faint-dark mr-1">04</span>Projects
+                        <span className="text-dm-text-faint dark:text-dm-text-faint-dark mr-1">03</span>Projects
                         <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-dm-accent dark:bg-dm-accent-dark transition-all duration-250 ease-out group-hover:w-full"></span>
                     </a>
                     <a href="#contact" className="font-mono text-[12.5px] tracking-wide text-dm-text-mut dark:text-dm-text-mut-dark hover:text-dm-text dark:hover:text-dm-text-dark transition-colors relative group py-1">
-                        <span className="text-dm-text-faint dark:text-dm-text-faint-dark mr-1">05</span>Contact
+                        <span className="text-dm-text-faint dark:text-dm-text-faint-dark mr-1">04</span>Contact
                         <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-dm-accent dark:bg-dm-accent-dark transition-all duration-250 ease-out group-hover:w-full"></span>
                     </a>
                 </div>

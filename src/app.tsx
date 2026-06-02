@@ -1,7 +1,6 @@
 import { motion } from 'framer-motion';
 import Navigation from './components/general/navigation.tsx';
 import Hero from './components/section/contact/hero.tsx';
-import About from './components/section/about/about.tsx';
 import Experience from './components/section/experience/experience.tsx';
 import Skills from './components/section/skills/skills.tsx';
 import Projects from './components/section/work/projects.tsx';
@@ -30,15 +29,6 @@ function App() {
                     role="Senior Software Engineer"
                     description="Building secure, scalable systems at the intersection of technology, security and finance"
                 />
-
-                <motion.div
-                    initial={{ opacity: 0, y: 15 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, margin: '-10%' }}
-                    transition={{ duration: 0.6 }}
-                >
-                    <About />
-                </motion.div>
 
                 <motion.div
                     initial={{ opacity: 0, y: 15 }}

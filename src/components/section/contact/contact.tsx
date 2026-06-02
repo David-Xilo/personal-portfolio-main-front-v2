@@ -11,7 +11,7 @@ const Contact = () => {
                 
                 {/* Section Header */}
                 <div className="flex items-baseline gap-4 mb-14">
-                    <span className="font-mono text-xs tracking-wider text-dm-accent dark:text-dm-accent-dark font-medium">05</span>
+                    <span className="font-mono text-xs tracking-wider text-dm-accent dark:text-dm-accent-dark font-medium">04</span>
                     <h2 className="font-serif text-3xl font-normal leading-none tracking-[-0.015em] text-dm-text dark:text-dm-text-dark">
                         Get in Touch
                     </h2>
