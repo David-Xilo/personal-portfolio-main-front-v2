@@ -15,9 +15,14 @@ const useApiGet = <T,>(path: string, initialValue: T | null): ApiResponse<T> => 
         error: '',
     }
     const [data, setData] = useState<ApiResponse<T>>(loadingMessage)
+    const [prevPath, setPrevPath] = useState(path)
+
+    if (path !== prevPath) {
+        setPrevPath(path)
+        setData(loadingMessage)
+    }
 
     useEffect(() => {
-        setData(loadingMessage)
         const controller = new AbortController()
 
         const fetchData = async () => {
@@ -61,7 +66,7 @@ const useApiGet = <T,>(path: string, initialValue: T | null): ApiResponse<T> => 
         return () => {
             controller.abort()
         }
-    }, [path])
+    }, [path, initialValue])
 
     return data
 }
