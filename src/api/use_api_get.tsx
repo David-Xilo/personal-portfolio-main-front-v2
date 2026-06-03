@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useRef } from 'react'
 import apiClient, { ApiError } from './client.ts'
 import { handleApiError, handleUnexpectedError } from './error_handler.ts'
 
@@ -9,17 +9,22 @@ interface ApiResponse<T> {
 }
 
 const useApiGet = <T,>(path: string, initialValue: T | null): ApiResponse<T> => {
-    const loadingMessage: ApiResponse<T> = {
+    const initialValueRef = useRef(initialValue)
+    
+    const [data, setData] = useState<ApiResponse<T>>({
         status: 'loading',
         message: initialValue,
         error: '',
-    }
-    const [data, setData] = useState<ApiResponse<T>>(loadingMessage)
+    })
     const [prevPath, setPrevPath] = useState(path)
 
     if (path !== prevPath) {
         setPrevPath(path)
-        setData(loadingMessage)
+        setData({
+            status: 'loading',
+            message: initialValue,
+            error: '',
+        })
     }
 
     useEffect(() => {
@@ -35,38 +40,35 @@ const useApiGet = <T,>(path: string, initialValue: T | null): ApiResponse<T> => 
                     signal: controller.signal
                 })
 
-                const normalizedData: ApiResponse<T> = {
+                setData({
                     status: 'success',
                     message: response.message,
                     error: '',
-                }
-                setData(normalizedData)
+                })
             } catch (err) {
                 const { errorMessage, shouldReturn } = handleApiError(err)
                 if (shouldReturn) return
 
-                const errorData: ApiResponse<T> = {
+                setData({
                     status: 'error',
-                    message: initialValue,
+                    message: initialValueRef.current,
                     error: errorMessage,
-                }
-                setData(errorData)
+                })
             }
         }
 
         fetchData().catch(err => {
-            const errorData: ApiResponse<T> = {
+            setData({
                 status: 'error',
-                message: initialValue,
+                message: initialValueRef.current,
                 error: handleUnexpectedError(err),
-            }
-            setData(errorData)
+            })
         })
 
         return () => {
             controller.abort()
         }
-    }, [path, initialValue])
+    }, [path])
 
     return data
 }

@@ -75,12 +75,29 @@ export function RepositoryCarousel({ repositories }: { repositories: RepositoryI
 
     const scrollLeft = (e: React.MouseEvent) => {
         e.stopPropagation();
-        trackRef.current?.scrollBy({ left: -320, behavior: 'smooth' });
+        const track = trackRef.current;
+        if (!track) return;
+
+        // Check if we are at the beginning
+        if (track.scrollLeft <= 5) {
+            track.scrollTo({ left: track.scrollWidth, behavior: 'smooth' });
+        } else {
+            track.scrollBy({ left: -320, behavior: 'smooth' });
+        }
     };
 
     const scrollRight = (e: React.MouseEvent) => {
         e.stopPropagation();
-        trackRef.current?.scrollBy({ left: 320, behavior: 'smooth' });
+        const track = trackRef.current;
+        if (!track) return;
+
+        const maxScroll = track.scrollWidth - track.clientWidth;
+        // Check if we are at the end (with a small buffer for subpixel issues)
+        if (track.scrollLeft >= maxScroll - 5) {
+            track.scrollTo({ left: 0, behavior: 'smooth' });
+        } else {
+            track.scrollBy({ left: 320, behavior: 'smooth' });
+        }
     };
 
     return (

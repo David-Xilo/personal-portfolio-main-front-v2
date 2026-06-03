@@ -8,18 +8,24 @@ export default defineConfig({
         {
             name: 'api-mock-rewrite',
             configureServer(server) {
-                server.middlewares.use((req, _res, next) => {
-                    if (req.url === '/contact') {
-                        req.url = '/api/contact.json'
-                    } else if (req.url === '/projects') {
-                        req.url = '/api/projects.json'
-                    } else if (req.url === '/experience') {
-                        req.url = '/api/experience.json'
-                    } else if (req.url === '/skills') {
-                        req.url = '/api/skills.json'
-                    }
-                    next()
-                })
+                server.middlewares.use((req, res, next) => {
+                    const url = req.url?.split('?')[0];
+                    if (url === '/contact') req.url = req.url!.replace('/contact', '/api/contact.json');
+                    else if (url === '/projects') req.url = req.url!.replace('/projects', '/api/projects.json');
+                    else if (url === '/experience') req.url = req.url!.replace('/experience', '/api/experience.json');
+                    else if (url === '/skills') req.url = req.url!.replace('/skills', '/api/skills.json');
+                    next();
+                });
+            },
+            configurePreviewServer(server) {
+                server.middlewares.use((req, res, next) => {
+                    const url = req.url?.split('?')[0];
+                    if (url === '/contact') req.url = req.url!.replace('/contact', '/api/contact.json');
+                    else if (url === '/projects') req.url = req.url!.replace('/projects', '/api/projects.json');
+                    else if (url === '/experience') req.url = req.url!.replace('/experience', '/api/experience.json');
+                    else if (url === '/skills') req.url = req.url!.replace('/skills', '/api/skills.json');
+                    next();
+                });
             }
         }
     ],
